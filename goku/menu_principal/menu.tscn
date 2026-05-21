@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bjwnlauukj748"]
+
+[ext_resource type="Script" uid="uid://dneavndmxbq20" path="res://menu_principal/menu.gd" id="1_g18jx"]
+[ext_resource type="Texture2D" uid="uid://dvjuq30tqcmub" path="res://menu_principal/img/menu.jpeg" id="2_6nwqt"]
+[ext_resource type="AudioStream" uid="uid://dsn8elcqhjys3" path="res://menu_principal/music/Genkidama Theme (From Dragon Ball GT) - Geek Music.mp3" id="3_6nwqt"]
+
+[node name="Menu" type="Control" unique_id=151662526]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g18jx")
+
+[node name="sprite_menu" type="Sprite2D" parent="." unique_id=991705870]
+position = Vector2(-42, 0)
+scale = Vector2(1.2451172, 1.1398602)
+texture = ExtResource("2_6nwqt")
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1514633932]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 472.0
+offset_right = 751.0
+offset_bottom = 661.0
+
+[node name="btn_start" type="Button" parent="VBoxContainer" unique_id=1171852317]
+layout_mode = 2
+text = "Empezar"
+
+[node name="btn_end" type="Button" parent="VBoxContainer" unique_id=1220269194]
+layout_mode = 2
+text = "Salir"
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1231025143]
+stream = ExtResource("3_6nwqt")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="VBoxContainer/btn_start" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_end" to="." method="_on_btn_end_pressed"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cyjs03gsq523a"]
+
+[ext_resource type="Script" uid="uid://daom6mb5ddq4e" path="res://Timer/timer.gd" id="1_e4beo"]
+
+[node name="Timer" type="Control" unique_id=1823423660]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_e4beo")
+segundos = null
+loop = null
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=133394813]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1049250692]
+layout_mode = 2
+text = "Tiempo restante:"
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer" unique_id=2087719642]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://idhuvvp0bxme"]
+
+[ext_resource type="Script" uid="uid://bf7q8euei5igv" path="res://contador_vidas/contador_vidas.gd" id="1_qca51"]
+
+[node name="ContadorVidas" type="Control" unique_id=1588794811]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qca51")
+
+[node name="LabelVidas" type="Label" parent="." unique_id=1042403538]
+layout_mode = 0
+offset_right = 438.0
+offset_bottom = 172.0

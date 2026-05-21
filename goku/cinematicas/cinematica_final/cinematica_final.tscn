@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cvuavvhr71btb"]
+
+[ext_resource type="Texture2D" uid="uid://bp3e1iuopfsw0" path="res://cinematicas/cinematica_final/img/endingDeff.png" id="1_llj2s"]
+[ext_resource type="Script" uid="uid://dtyr8hcjbu523" path="res://cinematicas/cinematica_final/cinematica_final.gd" id="1_uax3r"]
+[ext_resource type="AudioStream" uid="uid://cm88i46vs2a8v" path="res://cinematicas/cinematica_intro/music/Dragon Ball Z  prologue music 1 (Vegeta,Frieza,Cell Saga) - bakurock9.mp3" id="2_4gg8o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4gg8o"]
+font_size = 25
+
+[sub_resource type="Animation" id="Animation_4gg8o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_uax3r"]
+resource_name = "zoomout"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gd2xk"]
+_data = {
+&"RESET": SubResource("Animation_4gg8o"),
+&"zoomout": SubResource("Animation_uax3r")
+}
+
+[node name="CinematicaFinal" type="Node2D" unique_id=1740552285]
+script = ExtResource("1_uax3r")
+
+[node name="fondo" type="Sprite2D" parent="." unique_id=322616570]
+scale = Vector2(0.75651044, 0.68847656)
+texture = ExtResource("1_llj2s")
+centered = false
+
+[node name="Label" type="Label" parent="." unique_id=1753405008]
+offset_left = 726.0
+offset_top = 13.0
+offset_right = 1178.0
+offset_bottom = 245.0
+text = "Gracias a las bolas de dragón,
+Goku logró el suficiente poder
+para derrotar a Picolo Daimao
+y poner fin a sus malvados
+planes"
+label_settings = SubResource("LabelSettings_4gg8o")
+metadata/_edit_use_anchors_ = true
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=467210046]
+stream = ExtResource("2_4gg8o")
+volume_db = -31.2
+autoplay = true
+parameters/looping = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=304088148]
+position = Vector2(568, 334)
+zoom = Vector2(2, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=788831833]
+libraries/ = SubResource("AnimationLibrary_gd2xk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1944058222]
+offset_left = 53.0
+offset_top = 298.0
+offset_right = 283.0
+offset_bottom = 364.0
+
+[node name="Menu" type="Button" parent="VBoxContainer" unique_id=1244014911]
+layout_mode = 2
+text = "VOLVER AL MENU PRINCIPAL"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=864165244]
+layout_mode = 2
+text = "SALIR"
+
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_btn_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_btn_exit_pressed"]

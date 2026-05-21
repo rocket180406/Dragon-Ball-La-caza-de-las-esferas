@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c4g6ojdamvaux"]
+
+[ext_resource type="Texture2D" uid="uid://bd2las0nmo3ic" path="res://fondo/img/Background_2.png" id="1_0qi51"]
+[ext_resource type="Texture2D" uid="uid://07ydeqxw8ixx" path="res://fondo/img/ae350b0d-8d01-4cf2-8ad1-6535c426f5ab-removebg-preview.png" id="2_dq6rq"]
+[ext_resource type="Texture2D" uid="uid://0mdhdgru0hby" path="res://fondo/img/b4bf6786-5234-4b80-8345-a86c366c8f38-removebg-preview.png" id="3_og34b"]
+
+[node name="fondo" type="ParallaxBackground" unique_id=1074430831]
+
+[node name="layer_fondo" type="ParallaxLayer" parent="." unique_id=136197160]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="sprt_fondo" type="Sprite2D" parent="layer_fondo" unique_id=1134376825]
+position = Vector2(0, -276)
+scale = Vector2(2.3366938, 3.4007356)
+texture = ExtResource("1_0qi51")
+centered = false
+
+[node name="layer_medio" type="ParallaxLayer" parent="." unique_id=53228991]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="sprt_medio_montaña" type="Sprite2D" parent="layer_medio" unique_id=2012858269]
+position = Vector2(113, -172)
+scale = Vector2(1.7892157, 1.6446078)
+texture = ExtResource("2_dq6rq")
+centered = false
+
+[node name="sprt_medio_nieve" type="Sprite2D" parent="layer_medio" unique_id=43905593]
+position = Vector2(-669.99994, 424.99997)
+scale = Vector2(1.3978758, 1.9111518)
+texture = ExtResource("3_og34b")
+flip_h = true
+
+[node name="layer_primerplano" type="ParallaxLayer" parent="." unique_id=2051767779]
+
+[node name="sprt_primerplano" type="Sprite2D" parent="layer_primerplano" unique_id=110901159]

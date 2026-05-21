@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsn8elcqhjys3"
+path="res://.godot/imported/Genkidama Theme (From Dragon Ball GT) - Geek Music.mp3-e698126ca596598aabe7b50faf2e8e9b.mp3str"
+
+[deps]
+
+source_file="res://menu_principal/music/Genkidama Theme (From Dragon Ball GT) - Geek Music.mp3"
+dest_files=["res://.godot/imported/Genkidama Theme (From Dragon Ball GT) - Geek Music.mp3-e698126ca596598aabe7b50faf2e8e9b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

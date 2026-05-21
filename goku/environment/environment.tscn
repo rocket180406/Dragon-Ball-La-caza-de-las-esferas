@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://d1cwnp7bdf6r2"]
+
+[ext_resource type="PackedScene" uid="uid://c7epmyrkjgqsi" path="res://player/player.tscn" id="1_8a1ph"]
+[ext_resource type="PackedScene" uid="uid://dmsp518kacssh" path="res://floor/floor.tscn" id="2_wjl7u"]
+[ext_resource type="PackedScene" uid="uid://c4g6ojdamvaux" path="res://fondo/fondo.tscn" id="3_wjl7u"]
+[ext_resource type="PackedScene" uid="uid://bo4ghpuii62gu" path="res://master/karin.tscn" id="4_7uceq"]
+[ext_resource type="AudioStream" uid="uid://wg7tsm6ijhdh" path="res://environment/music/Megamix - Happy Dragon Ball Music to Motivate  Dragon Ball, Dragon Ball Z & Dragon Ball Super - Cornelius.mp3" id="5_x2wa3"]
+[ext_resource type="PackedScene" uid="uid://dwoi3lsd34gqt" path="res://coleccionables/bola_dragon1.tscn" id="6_ehb6n"]
+[ext_resource type="PackedScene" uid="uid://cg7my2rl1lsab" path="res://coleccionables/bola_dragon2.tscn" id="7_vh8kr"]
+[ext_resource type="PackedScene" uid="uid://bgsjag8xs1tfl" path="res://coleccionables/bola_dragon3.tscn" id="8_h6u84"]
+[ext_resource type="PackedScene" uid="uid://gp6ro3icfs5w" path="res://coleccionables/bola_dragon4.tscn" id="9_0iorr"]
+[ext_resource type="PackedScene" uid="uid://01lk2unvbp0s" path="res://coleccionables/bola_dragon5.tscn" id="10_gewoo"]
+[ext_resource type="PackedScene" uid="uid://bwj8obvt1jfey" path="res://coleccionables/bola_dragon6.tscn" id="11_nsn85"]
+[ext_resource type="PackedScene" uid="uid://die28cx4axsw1" path="res://coleccionables/bola_dragon7.tscn" id="12_ypa7m"]
+[ext_resource type="PackedScene" uid="uid://enxiuvbf3aiq" path="res://ene_dyn/ene_dyn.tscn" id="13_0iorr"]
+
+[node name="Environment" type="Node2D" unique_id=1345345069]
+
+[node name="floor" parent="." unique_id=1449963381 instance=ExtResource("2_wjl7u")]
+position = Vector2(-3, -6)
+
+[node name="karin" parent="." unique_id=1745853393 instance=ExtResource("4_7uceq")]
+position = Vector2(558, -127)
+scale = Vector2(0.2, 0.2)
+
+[node name="player" parent="." unique_id=314733550 instance=ExtResource("1_8a1ph")]
+position = Vector2(206, 556)
+scale = Vector2(0.5, 0.5)
+
+[node name="fondo" parent="." unique_id=1074430831 instance=ExtResource("3_wjl7u")]
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=367048847]
+stream = ExtResource("5_x2wa3")
+volume_db = -15.0
+autoplay = true
+parameters/looping = true
+
+[node name="coleccionables" type="Node2D" parent="." unique_id=622514197]
+scale = Vector2(0.05, 0.05)
+
+[node name="BolaDragon" parent="coleccionables" unique_id=805512287 instance=ExtResource("6_ehb6n")]
+position = Vector2(9160, -2820)
+
+[node name="BolaDragon2" parent="coleccionables" unique_id=911952715 instance=ExtResource("7_vh8kr")]
+position = Vector2(-6179.9995, 3440)
+
+[node name="BolaDragon3" parent="coleccionables" unique_id=1828437994 instance=ExtResource("8_h6u84")]
+position = Vector2(-38660, 5299.9995)
+
+[node name="BolaDragon4" parent="coleccionables" unique_id=1624224232 instance=ExtResource("9_0iorr")]
+position = Vector2(-38420, 12680)
+
+[node name="BolaDragon5" parent="coleccionables" unique_id=776228484 instance=ExtResource("10_gewoo")]
+position = Vector2(24540, 6280)
+
+[node name="BolaDragon6" parent="coleccionables" unique_id=58565657 instance=ExtResource("11_nsn85")]
+position = Vector2(61360, 13240)
+
+[node name="BolaDragon7" parent="coleccionables" unique_id=38528855 instance=ExtResource("12_ypa7m")]
+position = Vector2(-44420, 12000)
+
+[node name="enemigos" type="Node2D" parent="." unique_id=1955588281]
+scale = Vector2(0.15, 0.15)
+
+[node name="ene_dyn" parent="enemigos" unique_id=1831578707 instance=ExtResource("13_0iorr")]
+position = Vector2(-20, 3506.6665)
+
+[node name="ene_dyn3" parent="enemigos" unique_id=1200611040 instance=ExtResource("13_0iorr")]
+position = Vector2(-10993.333, 2973.3333)
+
+[node name="ene_dyn4" parent="enemigos" unique_id=563992958 instance=ExtResource("13_0iorr")]
+position = Vector2(-12346.666, 4260)
+
+[node name="ene_dyn5" parent="enemigos" unique_id=643555323 instance=ExtResource("13_0iorr")]
+position = Vector2(-10373.333, 4266.6665)
+
+[node name="ene_dyn7" parent="enemigos" unique_id=1552683925 instance=ExtResource("13_0iorr")]
+position = Vector2(-12219.999, 1593.3333)
+
+[node name="ene_dyn2" parent="enemigos" unique_id=2057827414 instance=ExtResource("13_0iorr")]
+position = Vector2(-7586.6665, 3733.3333)
+
+[node name="ene_dyn6" parent="enemigos" unique_id=56545217 instance=ExtResource("13_0iorr")]
+position = Vector2(-3746.6667, 2126.6665)
+
+[node name="ene_dyn8" parent="enemigos" unique_id=1284719192 instance=ExtResource("13_0iorr")]
+position = Vector2(8413.333, 3939.9998)
+
+[node name="ene_dyn9" parent="enemigos" unique_id=1931642798 instance=ExtResource("13_0iorr")]
+position = Vector2(17499.998, 3740)

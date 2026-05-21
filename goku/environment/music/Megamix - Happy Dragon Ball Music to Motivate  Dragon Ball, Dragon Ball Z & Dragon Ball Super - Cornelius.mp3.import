@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wg7tsm6ijhdh"
+path="res://.godot/imported/Megamix - Happy Dragon Ball Music to Motivate  Dragon Ball, Dragon Ball Z & Dragon Ball Super - Cornelius.mp3-1a253162001c596be8846deeac4faa80.mp3str"
+
+[deps]
+
+source_file="res://environment/music/Megamix - Happy Dragon Ball Music to Motivate  Dragon Ball, Dragon Ball Z & Dragon Ball Super - Cornelius.mp3"
+dest_files=["res://.godot/imported/Megamix - Happy Dragon Ball Music to Motivate  Dragon Ball, Dragon Ball Z & Dragon Ball Super - Cornelius.mp3-1a253162001c596be8846deeac4faa80.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

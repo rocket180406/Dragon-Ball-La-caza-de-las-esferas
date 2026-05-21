@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://x5swj6f6m56d"
+path="res://.godot/imported/Dragon Ball Z BGM - Cha-La Head Cha-La (Victory) (M705) - DragonBallBGM (Defunct) (1).mp3-62de6cf1bc0a144aadf1988773aeaea8.mp3str"
+
+[deps]
+
+source_file="res://cinematicas/cinematica_final/music/Dragon Ball Z BGM - Cha-La Head Cha-La (Victory) (M705) - DragonBallBGM (Defunct) (1).mp3"
+dest_files=["res://.godot/imported/Dragon Ball Z BGM - Cha-La Head Cha-La (Victory) (M705) - DragonBallBGM (Defunct) (1).mp3-62de6cf1bc0a144aadf1988773aeaea8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

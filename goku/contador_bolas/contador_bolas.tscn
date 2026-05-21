@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bporvejhu4b83"]
+
+[ext_resource type="Script" uid="uid://byg5ja747a271" path="res://contador_bolas/contador_bolas.gd" id="1_s3rwc"]
+[ext_resource type="Texture2D" uid="uid://b4aha6s1eau2r" path="res://coleccionables/img/dragonBallsDeff-removebg-preview.png" id="2_piqs6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eneio"]
+font_size = 26
+
+[node name="ContadorBolas" type="Control" unique_id=1568365540]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s3rwc")
+
+[node name="TextoContador" type="Label" parent="." unique_id=897141713]
+layout_mode = 0
+offset_left = 982.0
+offset_top = 23.0
+offset_right = 1123.0
+offset_bottom = 97.0
+text = " 0/7"
+label_settings = SubResource("LabelSettings_eneio")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1641917543]
+position = Vector2(938, 44)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_piqs6")
+region_enabled = true
+region_rect = Rect2(195.15308, 164.09276, 154.60895, 138.50389)

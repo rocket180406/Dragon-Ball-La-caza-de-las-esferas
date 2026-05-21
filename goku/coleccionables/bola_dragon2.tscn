@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cg7my2rl1lsab"]
+
+[ext_resource type="Texture2D" uid="uid://b4aha6s1eau2r" path="res://coleccionables/img/dragonBallsDeff-removebg-preview.png" id="1_2tk6m"]
+[ext_resource type="Script" uid="uid://v5tfbbagi0cd" path="res://coleccionables/bola_dragon.gd" id="1_pjs07"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pjs07"]
+radius = 73.00685
+
+[node name="BolaDragon" type="Area2D" unique_id=805512287]
+script = ExtResource("1_pjs07")
+
+[node name="sprt_bd" type="Sprite2D" parent="." unique_id=1572411721]
+position = Vector2(4, -1)
+texture = ExtResource("1_2tk6m")
+region_enabled = true
+region_rect = Rect2(81.9975, 0.40265083, 157.0581, 153.06512)
+
+[node name="col_bd" type="CollisionShape2D" parent="." unique_id=1171043361]
+position = Vector2(4, 0)
+shape = SubResource("CircleShape2D_pjs07")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

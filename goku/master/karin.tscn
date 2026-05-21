@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bo4ghpuii62gu"]
+
+[ext_resource type="Script" uid="uid://bsnf77bn37388" path="res://master/karin.gd" id="1_hwq4b"]
+[ext_resource type="Texture2D" uid="uid://d1nrq6kaiac2j" path="res://master/img/MasterN.png" id="1_vmca8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwq4b"]
+atlas = ExtResource("1_vmca8")
+region = Rect2(21, 314, 250, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3t0f"]
+atlas = ExtResource("1_vmca8")
+region = Rect2(271, 314, 250, 314)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x1ufp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwq4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3t0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3t0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3t0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3t0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwq4b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[node name="karin" type="Node2D" unique_id=1745853393]
+script = ExtResource("1_hwq4b")
+
+[node name="ani_karin" type="AnimatedSprite2D" parent="." unique_id=533920439]
+position = Vector2(144, -111.25)
+scale = Vector2(0.5, 0.502)
+sprite_frames = SubResource("SpriteFrames_x1ufp")
+animation = &"idle"
+frame_progress = 0.57020366
