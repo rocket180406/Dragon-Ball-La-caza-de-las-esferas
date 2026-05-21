@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b4aha6s1eau2r" path="res://coleccionables/img/dragonBallsDeff-removebg-preview.png" id="1_2548q"]
 [ext_resource type="Script" uid="uid://v5tfbbagi0cd" path="res://coleccionables/bola_dragon.gd" id="1_k06xw"]
+[ext_resource type="AudioStream" uid="uid://baqve70bwyri3" path="res://coleccionables/sonidos/freesound_community-collectcoin-6075.mp3" id="3_3ln7r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k06xw"]
 radius = 73.00685
@@ -18,5 +19,8 @@ region_rect = Rect2(4.0839233, 152.13676, 150.40314, 151.73412)
 [node name="col_bd" type="CollisionShape2D" parent="." unique_id=493749067]
 position = Vector2(4, 0)
 shape = SubResource("CircleShape2D_k06xw")
+
+[node name="recoger" type="AudioStreamPlayer" parent="." unique_id=1182407151]
+stream = ExtResource("3_3ln7r")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
