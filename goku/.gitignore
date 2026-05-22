@@ -1,0 +1,16 @@
+# Godot
+.godot/
+.import/
+
+# Exportados
+*.pck
+*.exe
+*.zip
+*.apk
+
+# Builds
+build/
+dist/
+
+# Export config (opcional, pero normalmente se sube si compartes presets)
+export_presets.cfg
