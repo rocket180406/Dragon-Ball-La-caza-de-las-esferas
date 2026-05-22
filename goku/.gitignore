@@ -1,16 +1,12 @@
-# Godot
+# Archivos específicos de Godot
 .godot/
 .import/
+export_presets.cfg
 
-# Exportados
-*.pck
-*.exe
-*.zip
-*.apk
-
-# Builds
+# Binarios de exportación
 build/
 dist/
 
-# Export config (opcional, pero normalmente se sube si compartes presets)
-export_presets.cfg
+# Archivos de configuración local del editor
+.pck
+.exe
