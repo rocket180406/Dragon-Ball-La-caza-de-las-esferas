@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://xk4hammvr45l"]
+
+[ext_resource type="Script" uid="uid://cu0rrs0vih474" path="res://ene_dyn/ene_aereo.gd" id="1_d6hdr"]
+[ext_resource type="Texture2D" uid="uid://dqd6hms0r72va" path="res://ene_dyn/img/sprtTambourineDefff-bg.png" id="2_x8j86"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahlyi"]
+atlas = ExtResource("2_x8j86")
+region = Rect2(0, 131, 113, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyndn"]
+atlas = ExtResource("2_x8j86")
+region = Rect2(113, 131, 113, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psak2"]
+atlas = ExtResource("2_x8j86")
+region = Rect2(234, 131, 117, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7j5d"]
+atlas = ExtResource("2_x8j86")
+region = Rect2(160, 0, 80, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5euyb"]
+atlas = ExtResource("2_x8j86")
+region = Rect2(234, 0, 78, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qejog"]
+atlas = ExtResource("2_x8j86")
+region = Rect2(312, 0, 78, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo2l2"]
+atlas = ExtResource("2_x8j86")
+region = Rect2(390, 0, 78, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6hdr"]
+atlas = ExtResource("2_x8j86")
+region = Rect2(0, 0, 89, 131)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qjtu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahlyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyndn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psak2")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7j5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5euyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qejog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo2l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6hdr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52c8n"]
+size = Vector2(91, 89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ltso"]
+size = Vector2(96, 93)
+
+[node name="ene_aereo" type="CharacterBody2D" unique_id=1831578707]
+script = ExtResource("1_d6hdr")
+
+[node name="ani_ene_dyn" type="AnimatedSprite2D" parent="." unique_id=521425598]
+sprite_frames = SubResource("SpriteFrames_7qjtu")
+frame_progress = 0.8653576
+
+[node name="col_ene_dyn" type="CollisionShape2D" parent="." unique_id=214108479]
+position = Vector2(3.5, 8.5)
+shape = SubResource("RectangleShape2D_52c8n")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=743593594]
+
+[node name="col_ene_dyn_ataque" type="CollisionShape2D" parent="Area2D" unique_id=1630040240]
+position = Vector2(4, 8.5)
+shape = SubResource("RectangleShape2D_5ltso")
+
+[node name="detectorIzquierdo" type="RayCast2D" parent="." unique_id=1625573415]
+position = Vector2(-153, 1)
+target_position = Vector2(-3, 180)
+
+[node name="detectorDerecho" type="RayCast2D" parent="." unique_id=1101900698]
+position = Vector2(177, 1)
+target_position = Vector2(7, 182)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_ene_area_body_entered"]
