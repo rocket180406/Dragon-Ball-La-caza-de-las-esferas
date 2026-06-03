@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dunrjm31grsc5"]
+
+[ext_resource type="Script" uid="uid://brs0ucgq1jxfk" path="res://cinematicas/pantalla_de_carga/pantalla_carga.gd" id="1_uoud0"]
+[ext_resource type="Texture2D" uid="uid://dr4g3v8u1lw4e" path="res://cinematicas/pantalla_de_carga/img/fondoPantallaCarga.png" id="2_l6uwr"]
+[ext_resource type="Texture2D" uid="uid://bac0njl6v1m1m" path="res://cinematicas/pantalla_de_carga/img/cuadroTexto.png" id="3_w2c36"]
+[ext_resource type="AudioStream" uid="uid://ykxt8b34dfow" path="res://cinematicas/pantalla_de_carga/musica/ytmp3free.cc_dragon-ball-gt-opening-piano-cover-mi-corazon-encantado-youtubemp3free.org.mp3" id="4_kb4kt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rqd1w"]
+font_size = 17
+font_color = Color(0, 0, 0, 1)
+
+[node name="PantallaCarga1" type="Node2D" unique_id=1816994353]
+script = ExtResource("1_uoud0")
+
+[node name="fondo" type="Sprite2D" parent="." unique_id=1250769230]
+scale = Vector2(0.75651044, 0.68847656)
+texture = ExtResource("2_l6uwr")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1499635324]
+position = Vector2(581, 98.00001)
+scale = Vector2(0.29687497, 0.28466797)
+texture = ExtResource("3_w2c36")
+
+[node name="Label" type="Label" parent="." unique_id=927916628]
+offset_left = 395.0
+offset_top = 43.0
+offset_right = 847.0
+offset_bottom = 275.0
+text = "EL DEMONIO TAMBOUTRINE IRA A POR TI 
+SI TE CERCAS DEMASIADO, INTENTA DARLE 
+ESQUINAZO Y SALTARLE!!!"
+label_settings = SubResource("LabelSettings_rqd1w")
+metadata/_edit_use_anchors_ = true
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=2031897174]
+stream = ExtResource("4_kb4kt")
+volume_db = -31.2
+autoplay = true
+parameters/looping = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2004548329]
+position = Vector2(568, 334)
+
+[node name="Label2" type="Label" parent="." unique_id=1245214176]
+offset_left = 1002.0
+offset_top = 605.0
+offset_right = 1092.0
+offset_bottom = 628.0
+text = "CARGANDO"

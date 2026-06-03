@@ -25,7 +25,7 @@ position = Vector2(558, -127)
 scale = Vector2(0.2, 0.2)
 
 [node name="player" parent="." unique_id=314733550 instance=ExtResource("1_8a1ph")]
-position = Vector2(260, 541)
+position = Vector2(202, 569)
 scale = Vector2(0.5, 0.5)
 
 [node name="fondo" parent="." unique_id=1074430831 instance=ExtResource("3_wjl7u")]
@@ -93,7 +93,7 @@ position = Vector2(17499.998, 3740)
 [node name="enemigos_aereos" type="Node2D" parent="." unique_id=375999403]
 
 [node name="EneAereo" parent="enemigos_aereos" unique_id=1352877003 instance=ExtResource("14_gewoo")]
-position = Vector2(194, 411.00006)
+position = Vector2(202, 394)
 scale = Vector2(0.45000002, 0.45000002)
 
 [node name="EneAereo2" parent="enemigos_aereos" unique_id=590720740 instance=ExtResource("14_gewoo")]

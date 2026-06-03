@@ -9,4 +9,4 @@ func _process(_delta):
 		cambiar_de_nivel()
 
 func cambiar_de_nivel():
-	get_tree().change_scene_to_file("res://cinematicas/cinematica_final/cinematica_final.tscn")
+	get_tree().change_scene_to_file("res://cinematicas/pantalla_de_carga/PantallaCarga.tscn")
