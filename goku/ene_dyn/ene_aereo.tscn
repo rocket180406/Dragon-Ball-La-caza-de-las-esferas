@@ -95,12 +95,4 @@ shape = SubResource("RectangleShape2D_52c8n")
 position = Vector2(4, 8.5)
 shape = SubResource("RectangleShape2D_5ltso")
 
-[node name="detectorIzquierdo" type="RayCast2D" parent="." unique_id=1625573415]
-position = Vector2(-153, 1)
-target_position = Vector2(-3, 180)
-
-[node name="detectorDerecho" type="RayCast2D" parent="." unique_id=1101900698]
-position = Vector2(177, 1)
-target_position = Vector2(7, 182)
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_ene_area_body_entered"]

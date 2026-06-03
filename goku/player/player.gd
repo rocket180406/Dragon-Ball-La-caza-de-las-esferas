@@ -19,8 +19,10 @@ signal jugador_murio
 var atacar: bool = false
 var muerto: bool = false
 
+var punto_de_spawn: Vector2 = Vector2.ZERO
+
 func _ready() -> void:
-	add_to_group("jugadores")
+	punto_de_spawn = global_position
 	emit_signal("vidas_actualizadas", Global.vidas)
 	Global.detener_tiempo = false
 	
@@ -97,9 +99,13 @@ func ejecutar_ataque():
 	await ani_player.animation_finished
 	atacar = false
 
+func curar_y_guardar_spawn(nueva_posicion: Vector2):
+	Global.vidas = 3
+	emit_signal("vidas_actualizadas", Global.vidas)
+	punto_de_spawn = nueva_posicion
+
 func recibir_danio():
 	if muerto: return
-	
 	Global.vidas -= 1
 	emit_signal("vidas_actualizadas", Global.vidas)
 	
@@ -115,11 +121,16 @@ func reiniciar_nivel():
 	ani_player.play("dead") 
 	dead.play()
 	await ani_player.animation_finished
-	get_tree().reload_current_scene()
+	
+	global_position = punto_de_spawn 
+	muerto = false
+	set_physics_process(true)
+	ani_player.play("idle")
 
 func morir_definitivamente():
 	muerto = true
 	Global.detener_tiempo = true
+	Global.bolas_recogidas = 0
 	emit_signal("jugador_murio") 
 	set_physics_process(false)
 	
