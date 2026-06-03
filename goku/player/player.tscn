@@ -296,7 +296,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(36, 35)
 
-[node name="player" type="CharacterBody2D" unique_id=314733550 groups=["agua"]]
+[node name="player" type="CharacterBody2D" unique_id=314733550 groups=["agua", "jugadores"]]
 position = Vector2(0, -3)
 script = ExtResource("1_rkbax")
 speed = 200
