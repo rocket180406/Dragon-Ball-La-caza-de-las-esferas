@@ -31,7 +31,8 @@ func _physics_process(delta: float) -> void:
 	# =========================
 	if jugador != null:
 		
-		var direccion = (jugador.global_position - global_position).normalized()
+		var objetivo = jugador.global_position + Vector2(0, -20)
+		var direccion = (objetivo - global_position).normalized()
 
 		velocity = direccion * speed_perseguir
 
@@ -72,6 +73,7 @@ func _physics_process(delta: float) -> void:
 			$ani_ene_dyn.flip_h = true
 
 	move_and_slide()
+	
 
 func buscar_jugador():
 
