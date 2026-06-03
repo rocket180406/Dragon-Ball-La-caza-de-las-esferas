@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bg51uo1pltk8i"]
+
+[ext_resource type="PackedScene" uid="uid://cpm2ujbbbw3ay" path="res://floor/castilloRey.tscn" id="1_q8603"]
+[ext_resource type="PackedScene" uid="uid://c7epmyrkjgqsi" path="res://player/player.tscn" id="2_pat0p"]
+[ext_resource type="PackedScene" uid="uid://bk2g8d085t6pm" path="res://fondo/fondoBossfight.tscn" id="3_pat0p"]
+
+[node name="EnvironmentBossfight" type="Node2D" unique_id=680511850]
+
+[node name="CastilloRey" parent="." unique_id=1005420428 instance=ExtResource("1_q8603")]
+position = Vector2(3, 4)
+
+[node name="player" parent="." unique_id=314733550 instance=ExtResource("2_pat0p")]
+position = Vector2(339, 634)
+scale = Vector2(0.5, 0.5)
+
+[node name="fondo" parent="." unique_id=1074430831 instance=ExtResource("3_pat0p")]
