@@ -10,7 +10,7 @@
 position = Vector2(3, 4)
 
 [node name="player" parent="." unique_id=314733550 instance=ExtResource("2_pat0p")]
-position = Vector2(100, 633)
+position = Vector2(106, 609)
 scale = Vector2(0.5, 0.5)
 
 [node name="fondo" parent="." unique_id=1074430831 instance=ExtResource("3_pat0p")]

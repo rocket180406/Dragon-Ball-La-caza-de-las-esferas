@@ -238,10 +238,6 @@ air_friction = 800
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1982040031]
 scale = Vector2(0.9523828, 0.96392006)
 sprite_frames = SubResource("SpriteFrames_4flbx")
-animation = &"attack"
-frame = 3
-frame_progress = 1.0
-offset = Vector2(1088, 3013)
 animation = &"run"
 frame_progress = 0.8541886
 metadata/_edit_group_ = true
