@@ -224,9 +224,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
-size = Vector2(36, 35)
+size = Vector2(40, 48.5)
 
-[node name="player" type="CharacterBody2D" unique_id=314733550 groups=["agua"]]
+[node name="player" type="CharacterBody2D" unique_id=314733550 groups=["agua", "jugadores"]]
 position = Vector2(0, -3)
 script = ExtResource("1_rkbax")
 speed = 200
@@ -236,17 +236,18 @@ air_acceleration = 1000
 air_friction = 800
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1982040031]
-position = Vector2(-969.19257, -2949.4817)
 scale = Vector2(0.9523828, 0.96392006)
 sprite_frames = SubResource("SpriteFrames_4flbx")
 animation = &"attack"
 frame = 3
 frame_progress = 1.0
 offset = Vector2(1088, 3013)
+animation = &"run"
+frame_progress = 0.8541886
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=203791702]
-position = Vector2(69, -31.5)
+position = Vector2(-2, 6.75)
 shape = SubResource("RectangleShape2D_rkbax")
 metadata/_edit_group_ = true
 
