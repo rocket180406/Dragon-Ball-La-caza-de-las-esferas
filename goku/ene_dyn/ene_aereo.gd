@@ -1,25 +1,25 @@
 extends CharacterBody2D
 
-# Movimiento patrulla
 @export var speed: float = 60.0
 @export var rango_patruya: float = 100.0
 
 @export var speed_perseguir: float = 45.0
 @export var distancia_deteccion: float = 120.0
 
-@export var vidas: int = 2
-@export var fuerza_repulsion: float = 350.0
-var esta_repelido: bool = false
-
 var posicion_inicial: Vector2
 var sentido := 1
 var jugador = null
+var esta_atacando: bool = false
 
 func _ready() -> void:
 	posicion_inicial = global_position
 	$ani_ene_dyn.play("default")
 
 func _physics_process(delta: float) -> void:
+	# Si está atacando, bloqueamos el resto del código de movimiento
+	if esta_atacando:
+		return
+	
 
 	if esta_repelido:
 		move_and_slide()
@@ -36,7 +36,6 @@ func _physics_process(delta: float) -> void:
 		if is_on_wall():
 			velocity.y = -40
 
-		# Flip sprite
 		if velocity.x > 0:
 			$ani_ene_dyn.flip_h = false
 		elif velocity.x < 0:
@@ -48,14 +47,12 @@ func _physics_process(delta: float) -> void:
 		
 		if global_position.x > posicion_inicial.x + rango_patruya:
 			sentido = -1
-
 		if global_position.x < posicion_inicial.x - rango_patruya:
 			sentido = 1
 
 		if is_on_wall():
 			sentido *= -1
 
-		# Flip sprite
 		if sentido == 1:
 			$ani_ene_dyn.flip_h = false
 		else:
@@ -72,6 +69,37 @@ func buscar_jugador():
 			jugador = body
 			return
 
+func _on_ene_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("jugadores"):
+		body.recibir_danio()
+		ejecutar_animacion_ataque(body)
+
+func ejecutar_animacion_ataque(objetivo_jugador: Node2D):
+	# AQUÍ ESTÁ LA CLAVE: Le decimos que empiece a atacar y lo frenamos
+	esta_atacando = true
+	velocity = Vector2.ZERO 
+	
+	var direccion_ataque = (objetivo_jugador.global_position - global_position).normalized()
+	
+	$ani_ene_dyn.flip_h = false
+	$ani_ene_dyn.rotation = direccion_ataque.angle()
+	
+	if direccion_ataque.x < 0:
+		$ani_ene_dyn.flip_v = true
+	else:
+		$ani_ene_dyn.flip_v = false
+		
+	$ani_ene_dyn.play("attack")
+
+
+# ESTA ES LA FUNCIÓN QUE TE FALTABA
+# Se ejecuta cuando la animación de ataque termina
+func _on_ani_ene_dyn_animation_finished() -> void:
+	if $ani_ene_dyn.animation == "attack":
+		esta_atacando = false       # Liberamos el movimiento
+		$ani_ene_dyn.rotation = 0   # Enderezamos el sprite
+		$ani_ene_dyn.flip_v = false 
+		$ani_ene_dyn.play("default")# Volvemos a la animación normal
 func recibir_dano(posicion_origen: Vector2, fuerza_recibida: float = 350.0):
 	vidas -= 1
 	
