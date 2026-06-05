@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://d11qb41wataf6"]
+
+[ext_resource type="Texture2D" uid="uid://g5mp8s1qsjyi" path="res://boss/img/piccoloSpriteSheet-nobg.png" id="1_bikhe"]
+[ext_resource type="Script" uid="uid://dltkuwlxd4y80" path="res://boss/proyectil.gd" id="1_fsqqs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsqqs"]
+atlas = ExtResource("1_bikhe")
+region = Rect2(434, 269, 30, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31q40"]
+atlas = ExtResource("1_bikhe")
+region = Rect2(470, 269, 24, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htq70"]
+atlas = ExtResource("1_bikhe")
+region = Rect2(494, 269, 24, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e6pyu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsqqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31q40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htq70")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_31q40"]
+
+[node name="Area2D" type="Area2D" unique_id=740544754]
+script = ExtResource("1_fsqqs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=278373778]
+sprite_frames = SubResource("SpriteFrames_e6pyu")
+frame_progress = 0.85106736
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=978202055]
+shape = SubResource("CircleShape2D_31q40")
