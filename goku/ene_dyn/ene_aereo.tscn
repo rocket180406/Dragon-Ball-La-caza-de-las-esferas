@@ -78,7 +78,7 @@ size = Vector2(91, 89)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ltso"]
 size = Vector2(96, 93)
 
-[node name="ene_aereo" type="CharacterBody2D" unique_id=1831578707]
+[node name="ene_aereo" type="CharacterBody2D" unique_id=1831578707 groups=["enemigos"]]
 script = ExtResource("1_d6hdr")
 
 [node name="ani_ene_dyn" type="AnimatedSprite2D" parent="." unique_id=521425598]

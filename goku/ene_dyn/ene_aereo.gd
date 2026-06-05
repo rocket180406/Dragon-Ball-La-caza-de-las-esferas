@@ -20,6 +20,11 @@ func _physics_process(delta: float) -> void:
 	if esta_atacando:
 		return
 	
+
+	if esta_repelido:
+		move_and_slide()
+		return
+
 	buscar_jugador()
 
 	if jugador != null:
@@ -35,11 +40,11 @@ func _physics_process(delta: float) -> void:
 			$ani_ene_dyn.flip_h = false
 		elif velocity.x < 0:
 			$ani_ene_dyn.flip_h = true
-
+			
 	else:
 		velocity.y = sin(Time.get_ticks_msec() * 0.003) * 10
 		velocity.x = speed * sentido
-
+		
 		if global_position.x > posicion_inicial.x + rango_patruya:
 			sentido = -1
 		if global_position.x < posicion_inicial.x - rango_patruya:
@@ -95,3 +100,24 @@ func _on_ani_ene_dyn_animation_finished() -> void:
 		$ani_ene_dyn.rotation = 0   # Enderezamos el sprite
 		$ani_ene_dyn.flip_v = false 
 		$ani_ene_dyn.play("default")# Volvemos a la animación normal
+func recibir_dano(posicion_origen: Vector2, fuerza_recibida: float = 350.0):
+	vidas -= 1
+	
+	if vidas <= 0:
+		queue_free()
+		return
+
+	var origen = posicion_origen
+	
+	if origen == Vector2.ZERO:
+		var lista_jugadores = get_tree().get_nodes_in_group("jugadores")
+		if lista_jugadores.size() > 0:
+			origen = lista_jugadores[0].global_position
+			
+	var direccion_empuje = (global_position - origen).normalized()
+	
+	velocity = direccion_empuje * fuerza_recibida
+	
+	esta_repelido = true
+	await get_tree().create_timer(0.2).timeout
+	esta_repelido = false

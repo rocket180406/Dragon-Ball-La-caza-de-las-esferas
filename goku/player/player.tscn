@@ -9,40 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://bporvejhu4b83" path="res://contador_bolas/contador_bolas.tscn" id="5_rgyib"]
 [ext_resource type="AudioStream" uid="uid://dfyd7a163sma4" path="res://player/SE/floraphonic-brass-fail-11-a-207140.mp3" id="6_g6k8r"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g1dw6"]
-load_path = "res://.godot/imported/DragonBallSprites.png-286d9f0145d3942d87567a77ef24fad5.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yw30f"]
-atlas = SubResource("CompressedTexture2D_g1dw6")
-region = Rect2(0, 2015, 78, 77)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qjkh3"]
-atlas = SubResource("CompressedTexture2D_g1dw6")
-region = Rect2(83, 2015, 78, 77)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g6k8r"]
-atlas = SubResource("CompressedTexture2D_g1dw6")
-region = Rect2(166, 2015, 78, 77)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_boad6"]
-atlas = SubResource("CompressedTexture2D_g1dw6")
-region = Rect2(249, 2015, 78, 77)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgyib"]
-atlas = SubResource("CompressedTexture2D_g1dw6")
-region = Rect2(332, 2015, 78, 77)
+atlas = ExtResource("2_rkbax")
+region = Rect2(0, 3233, 101, 61)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hg6s5"]
-atlas = SubResource("CompressedTexture2D_g1dw6")
-region = Rect2(415, 2015, 78, 77)
+atlas = ExtResource("2_rkbax")
+region = Rect2(101, 3233, 101, 61)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8t03j"]
-atlas = SubResource("CompressedTexture2D_g1dw6")
-region = Rect2(498, 2015, 78, 77)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ieo8"]
-atlas = SubResource("CompressedTexture2D_g1dw6")
-region = Rect2(581, 2015, 78, 77)
+atlas = ExtResource("2_rkbax")
+region = Rect2(202, 3233, 101, 61)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ebec5"]
 atlas = ExtResource("2_rkbax")
@@ -104,26 +81,6 @@ region = Rect2(68, 4414, 63, 64)
 atlas = ExtResource("2_rkbax")
 region = Rect2(136, 4414, 63, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uw77l"]
-atlas = ExtResource("2_rkbax")
-region = Rect2(0, 4476, 33, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rptt4"]
-atlas = ExtResource("2_rkbax")
-region = Rect2(33, 4479, 33, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r7pn3"]
-atlas = ExtResource("2_rkbax")
-region = Rect2(66, 4479, 33, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b8hi5"]
-atlas = ExtResource("2_rkbax")
-region = Rect2(33, 4476, 33, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2uvqg"]
-atlas = ExtResource("2_rkbax")
-region = Rect2(99, 4479, 33, 37)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1s1yo"]
 atlas = ExtResource("2_rkbax")
 region = Rect2(204, 4414, 63, 64)
@@ -156,18 +113,6 @@ region = Rect2(330, 331, 62, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yw30f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qjkh3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g6k8r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_boad6")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_rgyib")
 }, {
 "duration": 1.0,
@@ -177,11 +122,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_8t03j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2ieo8")
+"texture": SubResource("AtlasTexture_hg6s5")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 20.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -248,26 +193,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_7pqkx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uw77l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rptt4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r7pn3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b8hi5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2uvqg")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_1s1yo")
 }],
 "loop": true,
 "name": &"kame",
-"speed": 3.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -296,6 +226,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(40, 48.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rgyib"]
+radius = 25.643738
+
 [node name="player" type="CharacterBody2D" unique_id=314733550 groups=["agua", "jugadores"]]
 position = Vector2(0, -3)
 script = ExtResource("1_rkbax")
@@ -306,10 +239,13 @@ air_acceleration = 1000
 air_friction = 800
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1982040031]
+position = Vector2(-1036.0001, -2909)
 scale = Vector2(0.9523828, 0.96392006)
 sprite_frames = SubResource("SpriteFrames_4flbx")
-animation = &"run"
-frame_progress = 0.8541886
+animation = &"attack"
+frame = 3
+frame_progress = 1.0
+offset = Vector2(1088, 3013)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=203791702]
@@ -329,19 +265,37 @@ drag_vertical_offset = -0.6
 [node name="Timer" parent="CanvasLayer" unique_id=1823423660 instance=ExtResource("3_g1dw6")]
 
 [node name="ContadorVidas" parent="CanvasLayer" unique_id=1588794811 instance=ExtResource("4_boad6")]
-offset_left = 10.0
-offset_top = 61.0
-offset_right = 10.0
-offset_bottom = 61.0
+offset_left = 374.0
+offset_top = 692.0
+offset_right = 374.0
+offset_bottom = 692.0
 
 [node name="ContadorBolas" parent="CanvasLayer" unique_id=1568365540 instance=ExtResource("5_rgyib")]
+offset_left = -1.0
+offset_top = 3.0
+offset_right = -1.0
+offset_bottom = 3.0
 
 [node name="attack" type="AudioStreamPlayer" parent="." unique_id=1742832552]
 stream = ExtResource("5_g6k8r")
 
 [node name="jump" type="AudioStreamPlayer" parent="." unique_id=611833115]
 stream = ExtResource("4_qjkh3")
+volume_db = -12.772
 
 [node name="dead" type="AudioStreamPlayer" parent="." unique_id=1513763110]
 stream = ExtResource("6_g6k8r")
 volume_db = 1.164
+
+[node name="AreaAtaque" type="Area2D" parent="." unique_id=974728181]
+
+[node name="coll_ataque" type="CollisionShape2D" parent="AreaAtaque" unique_id=1948178525]
+position = Vector2(19, -3)
+rotation = 1.7417055
+scale = Vector2(1.409283, -1.4053153)
+shape = SubResource("CircleShape2D_rgyib")
+disabled = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="body_entered" from="AreaAtaque" to="." method="_on_area_ataque_body_entered"]

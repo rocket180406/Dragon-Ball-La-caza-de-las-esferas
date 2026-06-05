@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bk2g8d085t6pm"]
+
+[ext_resource type="Texture2D" uid="uid://c8jb5fjvehioe" path="res://fondo/img/fondoCastilloDeff.png" id="1_076me"]
+
+[node name="fondo" type="ParallaxBackground" unique_id=1074430831]
+
+[node name="layer_fondo" type="ParallaxLayer" parent="." unique_id=136197160]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="sprt_fondo" type="Sprite2D" parent="layer_fondo" unique_id=1134376825]
+position = Vector2(-43, -102.000015)
+scale = Vector2(0.5205021, 0.4598214)
+texture = ExtResource("1_076me")
+centered = false
