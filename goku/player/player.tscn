@@ -241,6 +241,8 @@ scale = Vector2(0.9523828, 0.96392006)
 sprite_frames = SubResource("SpriteFrames_4flbx")
 animation = &"idle"
 offset = Vector2(1088, 3013)
+animation = &"run"
+frame_progress = 0.8541886
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=203791702]
