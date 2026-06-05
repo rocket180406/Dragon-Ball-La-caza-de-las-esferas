@@ -32,10 +32,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52c8n"]
-size = Vector2(301, 145)
+size = Vector2(34, 67)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ltso"]
-size = Vector2(313, 155)
+size = Vector2(38, 70)
 
 [node name="ene_dyn" type="CharacterBody2D" unique_id=1831578707]
 script = ExtResource("1_52c8n")
