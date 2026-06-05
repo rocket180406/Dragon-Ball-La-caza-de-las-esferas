@@ -236,14 +236,11 @@ air_acceleration = 1000
 air_friction = 800
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1982040031]
+position = Vector2(-1036.0001, -2909)
 scale = Vector2(0.9523828, 0.96392006)
 sprite_frames = SubResource("SpriteFrames_4flbx")
-animation = &"attack"
-frame = 3
-frame_progress = 1.0
+animation = &"idle"
 offset = Vector2(1088, 3013)
-animation = &"run"
-frame_progress = 0.8541886
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=203791702]
@@ -263,12 +260,16 @@ drag_vertical_offset = -0.6
 [node name="Timer" parent="CanvasLayer" unique_id=1823423660 instance=ExtResource("3_g1dw6")]
 
 [node name="ContadorVidas" parent="CanvasLayer" unique_id=1588794811 instance=ExtResource("4_boad6")]
-offset_left = 10.0
-offset_top = 61.0
-offset_right = 10.0
-offset_bottom = 61.0
+offset_left = 374.0
+offset_top = 692.0
+offset_right = 374.0
+offset_bottom = 692.0
 
 [node name="ContadorBolas" parent="CanvasLayer" unique_id=1568365540 instance=ExtResource("5_rgyib")]
+offset_left = -1.0
+offset_top = 3.0
+offset_right = -1.0
+offset_bottom = 3.0
 
 [node name="attack" type="AudioStreamPlayer" parent="." unique_id=1742832552]
 stream = ExtResource("5_g6k8r")
