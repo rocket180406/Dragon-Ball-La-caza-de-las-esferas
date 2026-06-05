@@ -78,13 +78,20 @@ func handle_air_acceleration(input_axis, delta):
 		velocity.x = move_toward(velocity.x, speed * input_axis, air_acceleration * delta)
 
 func update_animation(input_axis):
+	if input_axis != 0:
+		ani_player.flip_h = (input_axis < 0)
+		
+		if input_axis < 0:
+			$AreaAtaque.scale.x = -1 
+		else:
+			$AreaAtaque.scale.x = 1
+
 	if not is_on_floor():
 		if ani_player.animation != "jump":
 			ani_player.play("jump")
 			jump.play()
 	elif input_axis != 0:
 		ani_player.speed_scale = max(abs(velocity.x) / speed, 0.7)
-		ani_player.flip_h = (input_axis < 0)
 		if ani_player.animation != "run":
 			ani_player.play("run")
 	else:
@@ -138,3 +145,19 @@ func morir_definitivamente():
 	dead.play()
 	await ani_player.animation_finished	
 	get_tree().change_scene_to_file("res://menu_muerte/menu_muerte.tscn")
+
+
+func _on_animated_sprite_2d_frame_changed() -> void:
+	if $AnimatedSprite2D.animation == "attack":
+		if $AnimatedSprite2D.frame == 1:
+			$AreaAtaque/coll_ataque.disabled = false
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if $AnimatedSprite2D.animation == "attack":
+		$AreaAtaque/coll_ataque.disabled = true
+
+
+func _on_area_ataque_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemigos"):
+		if body.has_method("recibir_dano"):
+			body.recibir_dano(global_position, 500.0)
