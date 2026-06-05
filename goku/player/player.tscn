@@ -226,6 +226,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(40, 48.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rgyib"]
+radius = 25.643738
+
 [node name="player" type="CharacterBody2D" unique_id=314733550 groups=["agua", "jugadores"]]
 position = Vector2(0, -3)
 script = ExtResource("1_rkbax")
@@ -239,10 +242,10 @@ air_friction = 800
 position = Vector2(-1036.0001, -2909)
 scale = Vector2(0.9523828, 0.96392006)
 sprite_frames = SubResource("SpriteFrames_4flbx")
-animation = &"idle"
+animation = &"attack"
+frame = 3
+frame_progress = 1.0
 offset = Vector2(1088, 3013)
-animation = &"run"
-frame_progress = 0.8541886
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=203791702]
@@ -283,3 +286,16 @@ volume_db = -12.772
 [node name="dead" type="AudioStreamPlayer" parent="." unique_id=1513763110]
 stream = ExtResource("6_g6k8r")
 volume_db = 1.164
+
+[node name="AreaAtaque" type="Area2D" parent="." unique_id=974728181]
+
+[node name="coll_ataque" type="CollisionShape2D" parent="AreaAtaque" unique_id=1948178525]
+position = Vector2(19, -3)
+rotation = 1.7417055
+scale = Vector2(1.409283, -1.4053153)
+shape = SubResource("CircleShape2D_rgyib")
+disabled = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="body_entered" from="AreaAtaque" to="." method="_on_area_ataque_body_entered"]

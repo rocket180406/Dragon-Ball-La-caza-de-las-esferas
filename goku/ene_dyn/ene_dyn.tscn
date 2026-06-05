@@ -32,34 +32,34 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52c8n"]
-size = Vector2(34, 67)
+size = Vector2(284, 169)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ltso"]
-size = Vector2(38, 70)
+size = Vector2(318, 179)
 
-[node name="ene_dyn" type="CharacterBody2D" unique_id=1831578707]
+[node name="ene_dyn" type="CharacterBody2D" unique_id=1831578707 groups=["enemigos"]]
 script = ExtResource("1_52c8n")
 
 [node name="ani_ene_dyn" type="AnimatedSprite2D" parent="." unique_id=521425598]
 sprite_frames = SubResource("SpriteFrames_e48vb")
-frame_progress = 0.6273954
+frame_progress = 0.77129275
 
 [node name="col_ene_dyn" type="CollisionShape2D" parent="." unique_id=214108479]
-position = Vector2(10.5, 15.5)
+position = Vector2(20, 24)
 shape = SubResource("RectangleShape2D_52c8n")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=743593594]
 
 [node name="col_ene_dyn_ataque" type="CollisionShape2D" parent="Area2D" unique_id=1630040240]
-position = Vector2(9.5, 16.5)
+position = Vector2(18, 18.5)
 shape = SubResource("RectangleShape2D_5ltso")
 
 [node name="detectorIzquierdo" type="RayCast2D" parent="." unique_id=1625573415]
 position = Vector2(-153, 1)
-target_position = Vector2(-3, 180)
+target_position = Vector2(-4, 502)
 
 [node name="detectorDerecho" type="RayCast2D" parent="." unique_id=1101900698]
 position = Vector2(177, 1)
-target_position = Vector2(7, 182)
+target_position = Vector2(-5, 523)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_ene_area_body_entered"]
