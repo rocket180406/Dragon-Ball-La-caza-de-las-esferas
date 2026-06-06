@@ -12,3 +12,6 @@ func _on_area_2d_body_entered(body):
 		if body.has_method("recibir_danio"):
 			body.recibir_danio()
 			queue_free()
+
+func reiniciar():
+	queue_free()

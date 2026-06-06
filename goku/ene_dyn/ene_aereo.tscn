@@ -96,4 +96,5 @@ position = Vector2(4, 8.5)
 shape = SubResource("RectangleShape2D_5ltso")
 
 [connection signal="animation_finished" from="ani_ene_dyn" to="." method="_on_ani_ene_dyn_animation_finished"]
+[connection signal="frame_changed" from="ani_ene_dyn" to="." method="_on_ani_ene_dyn_frame_changed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_ene_area_body_entered"]

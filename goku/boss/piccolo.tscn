@@ -223,6 +223,9 @@ size = Vector2(34, 52)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ltso"]
 size = Vector2(25, 43)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy5ct"]
+size = Vector2(40, 56)
+
 [node name="piccolo" type="CharacterBody2D" unique_id=1831578707 groups=["enemigos"]]
 script = ExtResource("1_t30kd")
 magia_scene = ExtResource("2_jvca8")
@@ -243,6 +246,10 @@ shape = SubResource("RectangleShape2D_52c8n")
 position = Vector2(15.5, 3.5)
 shape = SubResource("RectangleShape2D_5ltso")
 disabled = true
+
+[node name="col_ene_dano" type="CollisionShape2D" parent="Area2D" unique_id=862016274]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_gy5ct")
 
 [node name="detectorIzquierdo" type="RayCast2D" parent="." unique_id=1625573415]
 position = Vector2(-20, 1)

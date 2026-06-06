@@ -18,6 +18,7 @@ signal jugador_murio
 
 var atacar: bool = false
 var muerto: bool = false
+var cambiando_escena: bool = false
 
 var punto_de_spawn: Vector2 = Vector2.ZERO
 
@@ -25,10 +26,11 @@ func _ready() -> void:
 	punto_de_spawn = global_position
 	emit_signal("vidas_actualizadas", Global.vidas)
 	Global.detener_tiempo = false
+	cambiando_escena = false
 	
 	var contador = get_tree().root.find_child("Timer", true, false)
 	if contador:
-		contador.timeout.connect(morir_definitivamente)
+		contador.timeout.connect(ir_a_zona_de_batalla)
 		
 func _physics_process(delta: float) -> void:
 	if muerto: return 
@@ -112,7 +114,11 @@ func curar_y_guardar_spawn(nueva_posicion: Vector2):
 	punto_de_spawn = nueva_posicion
 
 func recibir_danio():
-	if muerto: return
+	if muerto or cambiando_escena: return
+	
+	if Global.es_inmortal:
+		return 
+	
 	Global.vidas -= 1
 	emit_signal("vidas_actualizadas", Global.vidas)
 	
@@ -139,6 +145,7 @@ func morir_definitivamente():
 	muerto = true
 	Global.detener_tiempo = true
 	Global.bolas_recogidas = 0
+	Global.es_inmortal = false
 	emit_signal("jugador_murio") 
 	set_physics_process(false)
 	
@@ -162,3 +169,10 @@ func _on_area_ataque_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemigos"):
 		if body.has_method("recibir_dano"):
 			body.recibir_dano(global_position, 500.0)
+
+func ir_a_zona_de_batalla():
+	if cambiando_escena:
+		return
+	cambiando_escena = true
+	velocity = Vector2.ZERO
+	get_tree().change_scene_to_file("res://environment/environmentBossfight.tscn")
