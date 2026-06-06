@@ -161,6 +161,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_1sx6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvca8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq418")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t30kd")
+}],
+"loop": false,
+"name": &"muerte",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yqghb")
 }, {
 "duration": 1.0,
@@ -206,24 +223,26 @@ size = Vector2(34, 52)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ltso"]
 size = Vector2(25, 43)
 
-[node name="piccolo" type="CharacterBody2D" unique_id=1831578707]
+[node name="piccolo" type="CharacterBody2D" unique_id=1831578707 groups=["enemigos"]]
 script = ExtResource("1_t30kd")
 magia_scene = ExtResource("2_jvca8")
 
 [node name="ani_piccolo" type="AnimatedSprite2D" parent="." unique_id=959789038]
 sprite_frames = SubResource("SpriteFrames_yqghb")
-animation = &"caminar"
-frame_progress = 0.17775908
+animation = &"muerte"
+frame = 3
+frame_progress = 1.0
 
 [node name="col_ene_dyn" type="CollisionShape2D" parent="." unique_id=214108479]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_52c8n")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=743593594]
+[node name="Area2D" type="Area2D" parent="." unique_id=743593594 groups=["enemigos"]]
 
 [node name="col_ene_dyn_ataque" type="CollisionShape2D" parent="Area2D" unique_id=1630040240]
 position = Vector2(15.5, 3.5)
 shape = SubResource("RectangleShape2D_5ltso")
+disabled = true
 
 [node name="detectorIzquierdo" type="RayCast2D" parent="." unique_id=1625573415]
 position = Vector2(-20, 1)
@@ -244,4 +263,6 @@ stream = ExtResource("5_62yqp")
 [node name="sonido_proyectil" type="AudioStreamPlayer" parent="." unique_id=1987738165]
 stream = ExtResource("6_gy5ct")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_ene_area_body_entered"]
+[connection signal="animation_finished" from="ani_piccolo" to="." method="_on_ani_piccolo_animation_finished"]
+[connection signal="frame_changed" from="ani_piccolo" to="." method="_on_ani_piccolo_frame_changed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

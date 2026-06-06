@@ -1,19 +1,24 @@
 extends CharacterBody2D
 
+@export var vidas := 6
 @export var velocidad := 60.0
 @export var distancia_ataque := 70.0
 @export var distancia_magia := 250.0
 @export var fuerza_salto := -350.0
 @export var gravedad := 900.0
 @export var magia_scene: PackedScene
+@export var cooldown_ataque := 1.2
 
 var jugador = null
 var atacando = false
 var lanzando_magia = false
 var puede_saltar = true
+var muerto := false
+var puede_atacar := true 
 
 @onready var sprite = $ani_piccolo
 @onready var hitbox = $Area2D
+@onready var colision_ataque = $Area2D/col_ene_dyn_ataque
 @onready var detector_izq = $detectorIzquierdo
 @onready var detector_der = $detectorDerecho
 
@@ -26,7 +31,7 @@ func _ready():
 
 	randomize()
 
-	hitbox.monitoring = false
+	colision_ataque.disabled = true
 
 	# SONIDO APARICION
 	if sonido_aparicion:
@@ -41,6 +46,9 @@ func _ready():
 	jugador = get_tree().get_first_node_in_group("jugadores")
 
 func _physics_process(delta):
+
+	if muerto: 
+		return
 
 	if jugador == null:
 		return
@@ -58,11 +66,9 @@ func _physics_process(delta):
 
 	velocity.x = direccion * velocidad
 	
-	# --- CORRECCIÓN AQUÍ ---
 	if direccion != 0:
 		sprite.flip_h = direccion < 0
 		hitbox.scale.x = direccion
-	# -----------------------
 
 	if distancia > distancia_ataque:
 		if hay_muro_delante():
@@ -83,7 +89,8 @@ func _physics_process(delta):
 
 	if distancia <= distancia_ataque:
 		velocity.x = 0
-		ataque_punetazo()
+		if puede_atacar:
+			ataque_punetazo()
 
 	elif distancia < distancia_magia:
 		if randf() < 0.003:
@@ -131,30 +138,29 @@ func saltar():
 
 func ataque_punetazo():
 
-	if atacando:
+	if atacando or muerto or not puede_atacar:
 		return
 
 	atacando = true
+	puede_atacar = false
 	velocity.x = 0
 
 	sprite.play("puñetazo")
 
-	# SONIDO ATAQUE
 	if sonido_ataque:
 		sonido_ataque.play()
 
-	hitbox.monitoring = true
-
 	await sprite.animation_finished
-
-	hitbox.monitoring = false
 
 	sprite.play("idle")
 	atacando = false
+	
+	await get_tree().create_timer(cooldown_ataque).timeout
+	puede_atacar = true
 
 func ataque_magia():
 
-	if lanzando_magia:
+	if lanzando_magia or muerto:
 		return
 
 	lanzando_magia = true
@@ -162,7 +168,6 @@ func ataque_magia():
 
 	sprite.play("magia")
 
-	# SONIDO MAGIA
 	if sonido_proyectil:
 		sonido_proyectil.play()
 
@@ -191,8 +196,34 @@ func crear_proyectil():
 		magia.direccion = 1
 
 func _on_area_2d_body_entered(body):
-
+	if muerto: return
 	if body.is_in_group("jugadores"):
-
 		if body.has_method("recibir_danio"):
 			body.recibir_danio()
+
+func recibir_dano(_posicion_ataque: Vector2, _fuerza: float):
+	if muerto: 
+		return
+	
+	vidas -= 1
+	print("Piccolo herido. Vidas restantes: ", vidas)
+	
+	if vidas <= 0:
+		morir()
+
+func morir():
+	muerto = true
+	velocity = Vector2.ZERO
+	sprite.play("muerte")
+	await sprite.animation_finished
+	queue_free()
+
+
+func _on_ani_piccolo_frame_changed() -> void:
+	if sprite.animation == "puñetazo":
+		if sprite.frame == 2: 
+			colision_ataque.disabled = false
+
+func _on_ani_piccolo_animation_finished() -> void:
+	if sprite.animation == "puñetazo":
+		colision_ataque.disabled = true
