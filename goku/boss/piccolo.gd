@@ -57,7 +57,12 @@ func _physics_process(delta):
 	var direccion = sign(jugador.global_position.x - global_position.x)
 
 	velocity.x = direccion * velocidad
-	sprite.flip_h = direccion < 0
+	
+	# --- CORRECCIÓN AQUÍ ---
+	if direccion != 0:
+		sprite.flip_h = direccion < 0
+		hitbox.scale.x = direccion
+	# -----------------------
 
 	if distancia > distancia_ataque:
 		if hay_muro_delante():

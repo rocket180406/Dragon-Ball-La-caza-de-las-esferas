@@ -13,5 +13,7 @@ script = ExtResource("1_qca51")
 
 [node name="LabelVidas" type="Label" parent="." unique_id=1042403538]
 layout_mode = 0
-offset_right = 438.0
-offset_bottom = 172.0
+offset_left = 6.0
+offset_top = -4.0
+offset_right = 444.0
+offset_bottom = 168.0

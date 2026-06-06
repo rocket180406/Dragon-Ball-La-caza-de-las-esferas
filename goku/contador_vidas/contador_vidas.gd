@@ -10,4 +10,5 @@ func _ready():
 	actualizar_texto_vidas(Global.vidas)
 
 func actualizar_texto_vidas(cantidad):
+	print("Mostrando vidas: ", cantidad)
 	label_vidas.text = "Vidas: " + str(cantidad)
