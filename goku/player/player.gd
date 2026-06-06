@@ -129,7 +129,8 @@ func reiniciar_nivel():
 	dead.play()
 	await ani_player.animation_finished
 	
-	global_position = punto_de_spawn 
+	global_position = punto_de_spawn
+	get_tree().call_group("enemigos", "reiniciar")
 	muerto = false
 	set_physics_process(true)
 	ani_player.play("idle")

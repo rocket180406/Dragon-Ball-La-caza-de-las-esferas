@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var vidas := 6
 @export var velocidad := 60.0
-@export var distancia_ataque := 70.0
+@export var distancia_ataque := 40.0
 @export var distancia_magia := 250.0
 @export var fuerza_salto := -350.0
 @export var gravedad := 900.0
@@ -14,7 +14,8 @@ var atacando = false
 var lanzando_magia = false
 var puede_saltar = true
 var muerto := false
-var puede_atacar := true 
+var puede_atacar := true
+var posicion_inicial := Vector2.ZERO
 
 @onready var sprite = $ani_piccolo
 @onready var hitbox = $Area2D
@@ -22,13 +23,12 @@ var puede_atacar := true
 @onready var detector_izq = $detectorIzquierdo
 @onready var detector_der = $detectorDerecho
 
-# SONIDOS
 @onready var sonido_aparicion = $sonido_aparicion
 @onready var sonido_ataque = $sonido_ataque
 @onready var sonido_proyectil = $sonido_proyectil
 
 func _ready():
-
+	posicion_inicial = global_position
 	randomize()
 
 	colision_ataque.disabled = true
@@ -211,12 +211,28 @@ func recibir_dano(_posicion_ataque: Vector2, _fuerza: float):
 	if vidas <= 0:
 		morir()
 
+# --- MODIFICADO: Ya no usamos queue_free() ---
 func morir():
 	muerto = true
 	velocity = Vector2.ZERO
 	sprite.play("muerte")
 	await sprite.animation_finished
-	queue_free()
+	
+	visible = false
+	process_mode = Node.PROCESS_MODE_DISABLED
+
+func reiniciar():
+	if vidas <= 0:
+		return
+	process_mode = Node.PROCESS_MODE_INHERIT
+	global_position = posicion_inicial
+	muerto = false
+	visible = true
+	atacando = false
+	lanzando_magia = false
+	puede_atacar = true
+	colision_ataque.disabled = true
+	sprite.play("idle")
 
 
 func _on_ani_piccolo_frame_changed() -> void:
