@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 @export var vidas := 6
-@export var velocidad := 60.0
+@export var velocidad := 100.0
 @export var distancia_ataque := 25.0 
 @export var distancia_magia := 250.0
 @export var fuerza_salto := -350.0
 @export var gravedad := 900.0
 @export var magia_scene: PackedScene
-@export var cooldown_ataque := 1.2
+@export var cooldown_ataque := 1.0
 
 var jugador = null
 var atacando = false
@@ -29,6 +29,7 @@ var esta_repelido := false
 @onready var sonido_aparicion = $sonido_aparicion
 @onready var sonido_ataque = $sonido_ataque
 @onready var sonido_proyectil = $sonido_proyectil
+@onready var sonido_muerte = $sonido_muerte
 
 func _ready():
 	posicion_inicial = global_position 
@@ -183,7 +184,7 @@ func _on_area_2d_body_entered(body):
 		if body.has_method("recibir_danio"):
 			body.recibir_danio()
 
-func recibir_dano(posicion_ataque: Vector2, fuerza: float = 350.0):
+func recibir_dano(posicion_ataque: Vector2, fuerza: float = 250.0):
 	if muerto: return
 	
 	vidas -= 1
@@ -212,9 +213,9 @@ func morir():
 	colision_ataque.set_deferred("disabled", true) 
 	
 	sprite.play("muerte")
+	if sonido_muerte: sonido_muerte.play()
 	await sprite.animation_finished
 	
-	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://cinematicas/cinematica_final/cinematica_final.tscn")
 	queue_free()
 

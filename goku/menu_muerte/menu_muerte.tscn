@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bsoclmjfgfml6"]
 
-[ext_resource type="Script" path="res://menu_muerte/menu_muerte.gd" id="1_1fhl7"]
-[ext_resource type="Texture2D" uid="uid://b2a8rcysufht7" path="res://menu_muerte/img/49fe26db-312d-4b85-b30c-5b7ec037e185.png" id="2_1fhl7"]
-[ext_resource type="AudioStream" uid="uid://dofq400xjeu2o" path="res://menu_muerte/music/Dragon Ball Z- Sad Theme - Kiantese.mp3" id="3_qu4f1"]
+[ext_resource type="Script" uid="uid://ba2205pmbubyj" path="res://menu_muerte/menu_muerte.gd" id="1_1fhl7"]
+[ext_resource type="Texture2D" uid="uid://bvumqwhkp1umq" path="res://menu_muerte/img/menuMuerteV3.png" id="2_qu4f1"]
+[ext_resource type="AudioStream" uid="uid://derd1i4jgbyhb" path="res://menu_muerte/music/Dragon Ball Z- Sad Theme - Kiantese.mp3" id="3_qu4f1"]
 
 [node name="MenuMuerte" type="Control" unique_id=1923506874]
 layout_mode = 3
@@ -14,16 +14,16 @@ grow_vertical = 2
 script = ExtResource("1_1fhl7")
 
 [node name="sprite_menu_muerte" type="Sprite2D" parent="." unique_id=262870484]
-position = Vector2(579, 324.00003)
-scale = Vector2(1.1289063, 0.63671875)
-texture = ExtResource("2_1fhl7")
+position = Vector2(588, 398)
+scale = Vector2(1.1890908, 1.0357676)
+texture = ExtResource("2_qu4f1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2025413719]
 layout_mode = 0
-offset_left = 445.0
-offset_top = 319.0
-offset_right = 713.0
-offset_bottom = 538.0
+offset_left = 853.0
+offset_top = 291.0
+offset_right = 1121.0
+offset_bottom = 510.0
 
 [node name="btn_restart" type="Button" parent="VBoxContainer" unique_id=538970604]
 layout_mode = 2

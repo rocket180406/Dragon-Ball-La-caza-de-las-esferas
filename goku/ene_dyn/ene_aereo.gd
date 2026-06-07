@@ -105,7 +105,6 @@ func _on_ani_ene_dyn_animation_finished() -> void:
 		$ani_ene_dyn.play("default")# Volvemos a la animación normal
 func recibir_dano(posicion_origen: Vector2, fuerza_recibida: float = 350.0):
 	vidas -= 1
-	
 	if vidas <= 0:
 		queue_free()
 		return

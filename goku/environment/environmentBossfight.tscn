@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cpm2ujbbbw3ay" path="res://floor/castilloRey.tscn" id="1_q8603"]
 [ext_resource type="PackedScene" uid="uid://c7epmyrkjgqsi" path="res://player/player.tscn" id="2_pat0p"]
-[ext_resource type="PackedScene" path="res://fondo/fondoBossfight.tscn" id="3_pat0p"]
+[ext_resource type="PackedScene" uid="uid://bk2g8d085t6pm" path="res://fondo/fondoBossfight.tscn" id="3_pat0p"]
 [ext_resource type="PackedScene" uid="uid://d4glm357s2flb" path="res://boss/piccolo.tscn" id="4_v0blc"]
 [ext_resource type="AudioStream" uid="uid://tvuchqotmtqt" path="res://environment/music/ytmp3free.cc_dbz-battle-music-1-youtubemp3free.org.mp3" id="5_1u2mk"]
 
@@ -23,6 +23,6 @@ scale = Vector2(0.6, 0.6)
 
 [node name="musica" type="AudioStreamPlayer" parent="." unique_id=1091248247]
 stream = ExtResource("5_1u2mk")
-volume_db = -10.692
+volume_db = -20.412
 autoplay = true
 parameters/looping = true

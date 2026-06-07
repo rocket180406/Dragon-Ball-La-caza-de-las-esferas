@@ -78,9 +78,6 @@ position = Vector2(-10373.333, 4266.6665)
 [node name="ene_dyn7" parent="enemigos_de_tierra" unique_id=1552683925 instance=ExtResource("13_0iorr")]
 position = Vector2(-12219.999, 1593.3333)
 
-[node name="ene_dyn2" parent="enemigos_de_tierra" unique_id=2057827414 instance=ExtResource("13_0iorr")]
-position = Vector2(-7586.6665, 3733.3333)
-
 [node name="ene_dyn6" parent="enemigos_de_tierra" unique_id=56545217 instance=ExtResource("13_0iorr")]
 position = Vector2(-3746.6667, 2126.6665)
 
@@ -93,7 +90,7 @@ position = Vector2(17499.998, 3740)
 [node name="enemigos_aereos" type="Node2D" parent="." unique_id=375999403]
 
 [node name="EneAereo" parent="enemigos_aereos" unique_id=1352877003 instance=ExtResource("14_gewoo")]
-position = Vector2(554, 487)
+position = Vector2(393, 392)
 scale = Vector2(0.45000002, 0.45000002)
 
 [node name="EneAereo2" parent="enemigos_aereos" unique_id=590720740 instance=ExtResource("14_gewoo")]
@@ -106,4 +103,8 @@ scale = Vector2(0.45000002, 0.45000002)
 
 [node name="EneAereo4" parent="enemigos_aereos" unique_id=1400502399 instance=ExtResource("14_gewoo")]
 position = Vector2(2108, 163)
+scale = Vector2(0.45000002, 0.45000002)
+
+[node name="EneAereo5" parent="enemigos_aereos" unique_id=905458007 instance=ExtResource("14_gewoo")]
+position = Vector2(-1134.9999, 531)
 scale = Vector2(0.45000002, 0.45000002)
