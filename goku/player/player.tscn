@@ -11,15 +11,11 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgyib"]
 atlas = ExtResource("2_rkbax")
-region = Rect2(0, 3233, 101, 61)
+region = Rect2(106, 3095, 61, 61)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hg6s5"]
 atlas = ExtResource("2_rkbax")
-region = Rect2(101, 3233, 101, 61)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8t03j"]
-atlas = ExtResource("2_rkbax")
-region = Rect2(202, 3233, 101, 61)
+region = Rect2(228, 3095, 61, 61)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ebec5"]
 atlas = ExtResource("2_rkbax")
@@ -32,6 +28,26 @@ region = Rect2(0, 4816, 67, 75)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kb6p2"]
 atlas = ExtResource("2_rkbax")
 region = Rect2(0, 4737, 67, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t03j"]
+atlas = ExtResource("2_rkbax")
+region = Rect2(7, 5223, 61, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ieo8"]
+atlas = ExtResource("2_rkbax")
+region = Rect2(71, 5223, 61, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw77l"]
+atlas = ExtResource("2_rkbax")
+region = Rect2(136, 5223, 61, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rptt4"]
+atlas = ExtResource("2_rkbax")
+region = Rect2(201, 5223, 61, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7pn3"]
+atlas = ExtResource("2_rkbax")
+region = Rect2(266, 5223, 61, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wodsf"]
 atlas = ExtResource("2_rkbax")
@@ -117,9 +133,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hg6s5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8t03j")
 }],
 "loop": false,
 "name": &"attack",
@@ -141,6 +154,59 @@ animations = [{
 "loop": false,
 "name": &"dead",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t03j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ieo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ieo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ieo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw77l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw77l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rptt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rptt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rptt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7pn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7pn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7pn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rptt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rptt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7pn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7pn3")
+}],
+"loop": false,
+"name": &"emote",
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -238,8 +304,9 @@ cooldown_ataque = 1.0
 position = Vector2(-1036.0001, -2909)
 scale = Vector2(0.9523828, 0.96392006)
 sprite_frames = SubResource("SpriteFrames_4flbx")
-animation = &"run"
-frame_progress = 0.8700266
+animation = &"emote"
+frame = 15
+frame_progress = 1.0
 offset = Vector2(1088, 3013)
 metadata/_edit_group_ = true
 

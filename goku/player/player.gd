@@ -23,6 +23,7 @@ var atacar: bool = false
 var puede_atacar: bool = true
 var muerto: bool = false
 var cambiando_escena: bool = false
+var haciendo_emote: bool = false
 
 var punto_de_spawn: Vector2 = Vector2.ZERO
 
@@ -39,6 +40,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if muerto:
+		return
+
+	if Input.is_action_just_pressed("emote") and not atacar and not haciendo_emote:
+		ejecutar_emote()
+		return
+
+	if haciendo_emote:
 		return
 
 	var input_axis := Input.get_axis("mover_izquierda", "mover_derecha")
@@ -78,7 +86,6 @@ func handle_acceleration(input_axis: float, delta: float) -> void:
 	if input_axis == 0:
 		return
 
-	# Giro instantáneo para evitar patinaje
 	if velocity.x != 0 and sign(velocity.x) != sign(input_axis):
 		if abs(velocity.x) > reverse_snap_speed:
 			velocity.x = 0.0
@@ -158,6 +165,16 @@ func ejecutar_ataque() -> void:
 	await ani_player.animation_finished
 
 	atacar = false
+
+func ejecutar_emote() -> void:
+	haciendo_emote = true
+	velocity = Vector2.ZERO
+
+	ani_player.play("emote")
+
+	await ani_player.animation_finished
+
+	haciendo_emote = false
 
 func curar_y_guardar_spawn(nueva_posicion: Vector2) -> void:
 	Global.vidas = 3
