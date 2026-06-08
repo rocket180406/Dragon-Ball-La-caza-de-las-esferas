@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dne7yx5hlb3qf"]
 
-[ext_resource type="Texture2D" uid="uid://wwd3vgq3qcow" path="res://cinematicas/cinematica_intro/img/ChatGPT Image 2 mar 2026, 11_44_32.png" id="1_1dehi"]
+[ext_resource type="Texture2D" uid="uid://wwd3vgq3qcow" path="res://cinematicas/cinematica_intro/img/fondoCinematicaIntro.png" id="1_1dehi"]
 [ext_resource type="AudioStream" uid="uid://cm88i46vs2a8v" path="res://cinematicas/cinematica_intro/music/Dragon Ball Z  prologue music 1 (Vegeta,Frieza,Cell Saga) - bakurock9.mp3" id="1_7tu5u"]
 [ext_resource type="Script" uid="uid://l6w0a0gales3" path="res://cinematicas/cinematica_intro/cinematica_intro.gd" id="1_knnwv"]
 

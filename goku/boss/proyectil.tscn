@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d11qb41wataf6"]
 
-[ext_resource type="Texture2D" uid="uid://g5mp8s1qsjyi" path="res://boss/img/piccoloSpriteSheet-nobg.png" id="1_bikhe"]
+[ext_resource type="Texture2D" uid="uid://g5mp8s1qsjyi" path="res://boss/img/piccoloSpriteSheet.png" id="1_bikhe"]
 [ext_resource type="Script" uid="uid://dltkuwlxd4y80" path="res://boss/proyectil.gd" id="1_fsqqs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fsqqs"]
@@ -34,14 +34,14 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_31q40"]
 
-[node name="Area2D" type="Area2D" unique_id=740544754 groups=["enemigos"]]
+[node name="area_proyectil" type="Area2D" unique_id=740544754 groups=["enemigos"]]
 script = ExtResource("1_fsqqs")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=278373778]
+[node name="ani_proyectil" type="AnimatedSprite2D" parent="." unique_id=278373778]
 sprite_frames = SubResource("SpriteFrames_e6pyu")
 frame_progress = 0.85106736
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=978202055]
+[node name="col_proyectil" type="CollisionShape2D" parent="." unique_id=978202055]
 shape = SubResource("CircleShape2D_31q40")
 
 [connection signal="body_entered" from="." to="." method="_on_area_2d_body_entered"]

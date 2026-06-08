@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dtdf02pluxc83" path="res://floor/img/Assets.png" id="1_1wsjq"]
 [ext_resource type="Texture2D" uid="uid://c0uwrflu8q8k7" path="res://floor/img/cascada.png" id="1_wld48"]
 [ext_resource type="Texture2D" uid="uid://by8d3xieyho4p" path="res://floor/img/hedge_maze_tiles.png" id="2_nr51y"]
-[ext_resource type="Texture2D" uid="uid://ciiuo61gxe6q5" path="res://floor/img/LPC_Modifed_Art/LPC_Trees.png" id="4_eta3y"]
+[ext_resource type="Texture2D" uid="uid://ciiuo61gxe6q5" path="res://floor/img/LPC_Trees.png" id="4_eta3y"]
 [ext_resource type="Texture2D" uid="uid://cryknd4yer8a6" path="res://floor/img/SnowTiles.png" id="4_w7rts"]
-[ext_resource type="Texture2D" uid="uid://buarc8wde82t1" path="res://floor/img/LPC_Modifed_Art/Tiles.png" id="6_naixu"]
+[ext_resource type="Texture2D" uid="uid://buarc8wde82t1" path="res://floor/img/Tiles.png" id="6_naixu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_naixu"]
 texture = ExtResource("1_1wsjq")

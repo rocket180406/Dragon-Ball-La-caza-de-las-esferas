@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://01lk2unvbp0s"]
 
 [ext_resource type="Script" uid="uid://v5tfbbagi0cd" path="res://coleccionables/bola_dragon.gd" id="1_d6ixe"]
-[ext_resource type="Texture2D" uid="uid://b4aha6s1eau2r" path="res://coleccionables/img/dragonBallsDeff-removebg-preview.png" id="1_uwgqe"]
+[ext_resource type="Texture2D" uid="uid://b4aha6s1eau2r" path="res://coleccionables/img/dragonBallsDeff.png" id="1_uwgqe"]
 [ext_resource type="AudioStream" uid="uid://baqve70bwyri3" path="res://coleccionables/sonidos/freesound_community-collectcoin-6075.mp3" id="3_uwpha"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d6ixe"]

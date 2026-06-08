@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://d4glm357s2flb"]
 
 [ext_resource type="Script" uid="uid://c58yqjfmfokg6" path="res://boss/piccolo.gd" id="1_t30kd"]
-[ext_resource type="Texture2D" uid="uid://g5mp8s1qsjyi" path="res://boss/img/piccoloSpriteSheet-nobg.png" id="1_xq418"]
+[ext_resource type="Texture2D" uid="uid://g5mp8s1qsjyi" path="res://boss/img/piccoloSpriteSheet.png" id="1_xq418"]
 [ext_resource type="PackedScene" uid="uid://d11qb41wataf6" path="res://boss/proyectil.tscn" id="2_jvca8"]
 [ext_resource type="AudioStream" uid="uid://f8a867ijtp5x" path="res://boss/SE/charging.mp3" id="4_gy5ct"]
 [ext_resource type="AudioStream" uid="uid://dyiytrb8d0ict" path="res://boss/SE/ataque.mp3" id="5_62yqp"]
 [ext_resource type="AudioStream" uid="uid://xdnrgsqjssh1" path="res://boss/SE/projectile.mp3" id="6_gy5ct"]
-[ext_resource type="AudioStream" uid="uid://festlsmjt0sq" path="res://boss/SE/dying1.mp3" id="7_kutrm"]
+[ext_resource type="AudioStream" uid="uid://festlsmjt0sq" path="res://boss/SE/dying.mp3" id="7_kutrm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t30kd"]
 atlas = ExtResource("1_xq418")
@@ -245,18 +245,18 @@ animation = &"muerte"
 frame = 3
 frame_progress = 1.0
 
-[node name="col_ene_dyn" type="CollisionShape2D" parent="." unique_id=214108479]
+[node name="col_piccolo" type="CollisionShape2D" parent="." unique_id=214108479]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_52c8n")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=743593594]
+[node name="ataque" type="Area2D" parent="." unique_id=743593594]
 
-[node name="col_ene_dyn_ataque" type="CollisionShape2D" parent="Area2D" unique_id=1630040240]
+[node name="col_ene_ataque" type="CollisionShape2D" parent="ataque" unique_id=1630040240]
 position = Vector2(15.5, 3.5)
 shape = SubResource("RectangleShape2D_5ltso")
 disabled = true
 
-[node name="col_ene_dano" type="CollisionShape2D" parent="Area2D" unique_id=862016274]
+[node name="col_ene_dano" type="CollisionShape2D" parent="ataque" unique_id=862016274]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_gy5ct")
 
@@ -284,4 +284,4 @@ stream = ExtResource("7_kutrm")
 
 [connection signal="animation_finished" from="ani_piccolo" to="." method="_on_ani_piccolo_animation_finished"]
 [connection signal="frame_changed" from="ani_piccolo" to="." method="_on_ani_piccolo_frame_changed"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ataque" to="." method="_on_area_2d_body_entered"]

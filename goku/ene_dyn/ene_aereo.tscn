@@ -91,7 +91,7 @@ shape = SubResource("RectangleShape2D_52c8n")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=743593594]
 
-[node name="col_ene_dyn_ataque" type="CollisionShape2D" parent="Area2D" unique_id=1630040240]
+[node name="col_ene_aereo_ataque" type="CollisionShape2D" parent="Area2D" unique_id=1630040240]
 position = Vector2(4, 8.5)
 shape = SubResource("RectangleShape2D_5ltso")
 

@@ -12,7 +12,6 @@ var sentido = 1
 func _ready() -> void:
 	$ani_ene_dyn.play("default")
 
-# NUEVA FUNCIÓN: Comprueba si el rayo toca tierra y no es agua
 func hay_suelo_seguro(detector: RayCast2D) -> bool:
 	if detector.is_colliding():
 		var obstaculo = detector.get_collider()
@@ -24,10 +23,8 @@ func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
 	
 	if esta_repelido:
-		# Si lo empujan a la derecha pero se acaba el suelo, lo frenamos en seco
 		if velocity.x > 0 and not hay_suelo_seguro($detectorDerecho):
 			velocity.x = 0
-		# Si lo empujan a la izquierda pero se acaba el suelo, lo frenamos en seco
 		elif velocity.x < 0 and not hay_suelo_seguro($detectorIzquierdo):
 			velocity.x = 0
 			
@@ -71,8 +68,6 @@ func recibir_dano(posicion_origen: Vector2, fuerza_recibida: float = 350.0):
 			
 	var direccion_empuje = (global_position - origen).normalized()
 	
-	# OJO AQUÍ: Hemos borrado el "direccion_empuje.y -= 0.5" 
-	# Forzamos a que el empuje sea 100% horizontal para que los detectores no se despeguen del suelo
 	direccion_empuje.y = 0 
 	
 	velocity = direccion_empuje * fuerza_recibida

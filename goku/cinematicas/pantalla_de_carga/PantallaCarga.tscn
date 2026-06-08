@@ -9,7 +9,7 @@
 font_size = 17
 font_color = Color(0, 0, 0, 1)
 
-[node name="PantallaCarga1" type="Node2D" unique_id=1816994353]
+[node name="PantallaCarga" type="Node2D" unique_id=1816994353]
 script = ExtResource("1_uoud0")
 
 [node name="fondo" type="Sprite2D" parent="." unique_id=1250769230]
@@ -27,9 +27,9 @@ offset_left = 395.0
 offset_top = 43.0
 offset_right = 847.0
 offset_bottom = 275.0
-text = "EL DEMONIO TAMBOUTRINE IRA A POR TI 
-SI TE CERCAS DEMASIADO, INTENTA DARLE 
-ESQUINAZO Y SALTARLE!!!"
+text = "PICCOLO IRÁ A POR TI CONSTANTEMENTE.
+¡USA LAS PLATAFORMAS PARA ESQUIVAR
+SUS ATAQUES!"
 label_settings = SubResource("LabelSettings_rqd1w")
 metadata/_edit_use_anchors_ = true
 

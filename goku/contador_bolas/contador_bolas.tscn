@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bporvejhu4b83"]
 
 [ext_resource type="Script" uid="uid://byg5ja747a271" path="res://contador_bolas/contador_bolas.gd" id="1_s3rwc"]
-[ext_resource type="Texture2D" uid="uid://b4aha6s1eau2r" path="res://coleccionables/img/dragonBallsDeff-removebg-preview.png" id="2_piqs6"]
+[ext_resource type="Texture2D" uid="uid://b4aha6s1eau2r" path="res://coleccionables/img/dragonBallsDeff.png" id="2_piqs6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_eneio"]
 font_size = 26
@@ -24,7 +24,7 @@ offset_bottom = 97.0
 text = " 0/7"
 label_settings = SubResource("LabelSettings_eneio")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1641917543]
+[node name="icono_bola" type="Sprite2D" parent="." unique_id=1641917543]
 position = Vector2(938, 44)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_piqs6")

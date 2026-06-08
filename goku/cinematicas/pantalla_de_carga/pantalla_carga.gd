@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var next_scene: String = "res://cinematicas/cinematica_final/cinematica_final.tscn"
+@export var next_scene: String = "res://environment/environmentBossfight.tscn"
 
 func _ready():
 	await get_tree().create_timer(5.0).timeout

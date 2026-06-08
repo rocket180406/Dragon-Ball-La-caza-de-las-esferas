@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var vidas := 6
 @export var velocidad := 100.0
-@export var distancia_ataque := 25.0 
+@export var distancia_ataque := 20.0 
 @export var distancia_magia := 250.0
 @export var fuerza_salto := -350.0
 @export var gravedad := 900.0
@@ -19,10 +19,9 @@ var posicion_inicial := Vector2.ZERO
 var esta_repelido := false 
 
 @onready var sprite = $ani_piccolo
-@onready var hitbox = $Area2D
-@onready var colision_ataque = $Area2D/col_ene_dyn_ataque
+@onready var hitbox = $ataque
+@onready var colision_ataque = $ataque/col_ene_ataque
 
-# Tus detectores que apuntan hacia abajo
 @onready var detector_izq = $detectorIzquierdo
 @onready var detector_der = $detectorDerecho
 
@@ -34,16 +33,12 @@ var esta_repelido := false
 func _ready():
 	posicion_inicial = global_position 
 	randomize()
-	# Usamos set_deferred para evitar errores en el motor de físicas de Godot
 	colision_ataque.set_deferred("disabled", true)
-
 	if sonido_aparicion: sonido_aparicion.play()
-
 	sprite.play("aparicion")
 	await sprite.animation_finished
 	await get_tree().create_timer(1.5).timeout
 	sprite.play("idle")
-
 	jugador = get_tree().get_first_node_in_group("jugadores")
 
 func hay_suelo_seguro(detector: RayCast2D) -> bool:
@@ -77,8 +72,7 @@ func _physics_process(delta):
 	var distancia = global_position.distance_to(jugador.global_position)
 	var direccion = sign(jugador.global_position.x - global_position.x)
 
-	# --- LÓGICA DE MOVIMIENTO CORREGIDA ---
-	var distancia_retroceso = 15.0 # Distancia mínima antes de retroceder
+	var distancia_retroceso = 15.0
 
 	if distancia < distancia_retroceso:
 		velocity.x = -direccion * velocidad
@@ -87,7 +81,6 @@ func _physics_process(delta):
 	else:
 		velocity.x = direccion * velocidad
 		
-	# --- PREVENCIÓN DE CAÍDAS ---
 	if is_on_floor(): 
 		if velocity.x > 0 and not hay_suelo_seguro(detector_der):
 			velocity.x = 0
@@ -102,7 +95,6 @@ func _physics_process(delta):
 		if is_on_wall():
 			saltar()
 
-	# --- ANIMACIONES ---
 	if not atacando and not lanzando_magia:
 		if not is_on_floor():
 			if sprite.animation != "salto":
@@ -115,7 +107,6 @@ func _physics_process(delta):
 				if sprite.animation != "idle":
 					sprite.play("idle")
 
-	# --- ATAQUES CORREGIDOS ---
 	if distancia <= distancia_ataque:
 		if puede_atacar:
 			ataque_punetazo()
@@ -200,7 +191,7 @@ func recibir_dano(posicion_ataque: Vector2, fuerza: float = 250.0):
 	atacando = false 
 	lanzando_magia = false
 	
-	# ¡LA CLAVE ESTÁ AQUÍ! Si le interrumpimos el ataque, apagamos la colisión a la fuerza.
+	
 	colision_ataque.set_deferred("disabled", true)
 	
 	await get_tree().create_timer(0.2).timeout
@@ -209,7 +200,7 @@ func recibir_dano(posicion_ataque: Vector2, fuerza: float = 250.0):
 func morir():
 	muerto = true
 	velocity = Vector2.ZERO
-	# Desactivamos el golpe por si muere a mitad de un ataque
+	
 	colision_ataque.set_deferred("disabled", true) 
 	
 	sprite.play("muerte")

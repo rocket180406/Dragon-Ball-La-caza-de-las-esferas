@@ -19,7 +19,6 @@ func _ready() -> void:
 	$ani_ene_dyn.play("default")
 
 func _physics_process(delta: float) -> void:
-	# Si está atacando, bloqueamos el resto del código de movimiento
 	if esta_atacando:
 		return
 	
@@ -78,7 +77,6 @@ func _on_ene_area_body_entered(body: Node2D) -> void:
 		ejecutar_animacion_ataque(body)
 
 func ejecutar_animacion_ataque(objetivo_jugador: Node2D):
-	# AQUÍ ESTÁ LA CLAVE: Le decimos que empiece a atacar y lo frenamos
 	esta_atacando = true
 	velocity = Vector2.ZERO 
 	
@@ -95,14 +93,12 @@ func ejecutar_animacion_ataque(objetivo_jugador: Node2D):
 	$ani_ene_dyn.play("attack")
 
 
-# ESTA ES LA FUNCIÓN QUE TE FALTABA
-# Se ejecuta cuando la animación de ataque termina
 func _on_ani_ene_dyn_animation_finished() -> void:
 	if $ani_ene_dyn.animation == "attack":
-		esta_atacando = false       # Liberamos el movimiento
-		$ani_ene_dyn.rotation = 0   # Enderezamos el sprite
+		esta_atacando = false
+		$ani_ene_dyn.rotation = 0
 		$ani_ene_dyn.flip_v = false 
-		$ani_ene_dyn.play("default")# Volvemos a la animación normal
+		$ani_ene_dyn.play("default")
 func recibir_dano(posicion_origen: Vector2, fuerza_recibida: float = 350.0):
 	vidas -= 1
 	if vidas <= 0:
