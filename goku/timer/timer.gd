@@ -31,7 +31,6 @@ func stop():
 	is_running = false
 
 func _process(delta: float) -> void:
-	# Aseguramos el freno si la variable global cambia a verdadero
 	if not is_running or Global.detener_tiempo:
 		return
 		

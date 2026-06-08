@@ -30,7 +30,3 @@ position = Vector2(-722.00006, 424.99997)
 scale = Vector2(1.6090685, 1.5021443)
 texture = ExtResource("3_og34b")
 flip_h = true
-
-[node name="layer_primerplano" type="ParallaxLayer" parent="." unique_id=2051767779]
-
-[node name="sprt_primerplano" type="Sprite2D" parent="layer_primerplano" unique_id=110901159]
