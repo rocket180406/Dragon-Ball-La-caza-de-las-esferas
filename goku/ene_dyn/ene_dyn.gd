@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var speed = 50
 
 @export var vidas: int = 2
-@export var fuerza_repulsion: float = 350.0
+@export var fuerza_repulsion: float = 500.0
 var esta_repelido: bool = false
 
 var sentido = 1

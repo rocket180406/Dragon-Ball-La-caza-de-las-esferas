@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bg51uo1pltk8i"]
+[gd_scene format=3 uid="uid://b28kkgqw3fyx0"]
 
 [ext_resource type="PackedScene" uid="uid://cpm2ujbbbw3ay" path="res://floor/castilloRey.tscn" id="1_q8603"]
 [ext_resource type="PackedScene" uid="uid://c7epmyrkjgqsi" path="res://player/player.tscn" id="2_pat0p"]
@@ -23,6 +23,6 @@ scale = Vector2(0.6, 0.6)
 
 [node name="musica" type="AudioStreamPlayer" parent="." unique_id=1091248247]
 stream = ExtResource("5_1u2mk")
-volume_db = -10.692
+volume_db = -20.412
 autoplay = true
 parameters/looping = true

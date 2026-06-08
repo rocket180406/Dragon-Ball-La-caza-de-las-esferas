@@ -6,10 +6,13 @@ extends CharacterBody2D
 @export var speed_perseguir: float = 45.0
 @export var distancia_deteccion: float = 120.0
 
+@export var vidas: int = 2
+
 var posicion_inicial: Vector2
 var sentido := 1
 var jugador = null
 var esta_atacando: bool = false
+var esta_repelido = false
 
 func _ready() -> void:
 	posicion_inicial = global_position
@@ -102,7 +105,6 @@ func _on_ani_ene_dyn_animation_finished() -> void:
 		$ani_ene_dyn.play("default")# Volvemos a la animación normal
 func recibir_dano(posicion_origen: Vector2, fuerza_recibida: float = 350.0):
 	vidas -= 1
-	
 	if vidas <= 0:
 		queue_free()
 		return

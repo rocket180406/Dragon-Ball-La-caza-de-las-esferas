@@ -13,6 +13,14 @@ func _ready():
 		jugador.jugador_murio.connect(stop)
 		
 	actualizar_interfaz()
+	
+	if get_tree().current_scene.scene_file_path.contains("Bossfight"):
+		Global.detener_tiempo = true
+		is_running = false
+		visible = false
+		set_process(false)
+		return
+	
 	start()
 
 func start():
@@ -23,8 +31,10 @@ func stop():
 	is_running = false
 
 func _process(delta: float) -> void:
+	# Aseguramos el freno si la variable global cambia a verdadero
 	if not is_running or Global.detener_tiempo:
 		return
+		
 	Global.tiempo_restante -= delta
 	
 	if Global.tiempo_restante <= 0:

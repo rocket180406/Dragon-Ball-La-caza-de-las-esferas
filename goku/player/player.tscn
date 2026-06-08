@@ -120,13 +120,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8t03j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hg6s5")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 6.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -220,38 +217,34 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
-size = Vector2(40, 48.5)
+size = Vector2(31, 45.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rgyib"]
-radius = 25.643738
+radius = 28.07204
 
 [node name="player" type="CharacterBody2D" unique_id=314733550 groups=["agua", "jugadores"]]
 position = Vector2(0, -3)
 script = ExtResource("1_rkbax")
-speed = 200
-acceleration = 200
-jump_force = -500
-air_acceleration = 1000
-air_friction = 800
+speed = 175.0
+acceleration = 1000.0
+jump_force = -545.0
+cooldown_ataque = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1982040031]
 position = Vector2(-1036.0001, -2909)
 scale = Vector2(0.9523828, 0.96392006)
 sprite_frames = SubResource("SpriteFrames_4flbx")
 animation = &"run"
-frame_progress = 0.8541886
-animation = &"attack"
-frame = 3
-frame_progress = 1.0
+frame_progress = 0.8700266
 offset = Vector2(1088, 3013)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=203791702]
-position = Vector2(-2, 6.75)
+position = Vector2(-2.5, 5.25)
 shape = SubResource("RectangleShape2D_rkbax")
 metadata/_edit_group_ = true
 
@@ -267,10 +260,8 @@ drag_vertical_offset = -0.6
 [node name="Timer" parent="CanvasLayer" unique_id=1823423660 instance=ExtResource("3_g1dw6")]
 
 [node name="ContadorVidas" parent="CanvasLayer" unique_id=1588794811 instance=ExtResource("4_boad6")]
-offset_left = 374.0
-offset_top = 692.0
-offset_right = 374.0
-offset_bottom = 692.0
+offset_top = 73.0
+offset_bottom = 73.0
 
 [node name="ContadorBolas" parent="CanvasLayer" unique_id=1568365540 instance=ExtResource("5_rgyib")]
 offset_left = -1.0

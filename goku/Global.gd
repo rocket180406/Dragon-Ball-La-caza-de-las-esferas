@@ -2,6 +2,7 @@ extends Node
 
 signal vidas_cambiadas(nueva_cantidad)
 
+var es_inmortal: bool = false
 var vidas_maximas: int = 3
 var vidas: int = 3:
 	set(value):

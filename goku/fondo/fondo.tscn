@@ -20,14 +20,14 @@ centered = false
 motion_scale = Vector2(0.2, 0.2)
 
 [node name="sprt_medio_montaña" type="Sprite2D" parent="layer_medio" unique_id=2012858269]
-position = Vector2(113, -172)
-scale = Vector2(1.7892157, 1.6446078)
+position = Vector2(55, -64)
+scale = Vector2(1.5294117, 1.112745)
 texture = ExtResource("2_dq6rq")
 centered = false
 
 [node name="sprt_medio_nieve" type="Sprite2D" parent="layer_medio" unique_id=43905593]
-position = Vector2(-669.99994, 424.99997)
-scale = Vector2(1.3978758, 1.9111518)
+position = Vector2(-722.00006, 424.99997)
+scale = Vector2(1.6090685, 1.5021443)
 texture = ExtResource("3_og34b")
 flip_h = true
 

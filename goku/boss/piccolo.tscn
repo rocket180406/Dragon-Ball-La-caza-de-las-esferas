@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://c58yqjfmfokg6" path="res://boss/piccolo.gd" id="1_t30kd"]
 [ext_resource type="Texture2D" uid="uid://g5mp8s1qsjyi" path="res://boss/img/piccoloSpriteSheet-nobg.png" id="1_xq418"]
 [ext_resource type="PackedScene" uid="uid://d11qb41wataf6" path="res://boss/proyectil.tscn" id="2_jvca8"]
-[ext_resource type="AudioStream" uid="uid://bfvtfb2dqmett" path="res://boss/SE/mikuBeam.mp3" id="4_1sx6b"]
+[ext_resource type="AudioStream" uid="uid://f8a867ijtp5x" path="res://boss/SE/charging.mp3" id="4_gy5ct"]
 [ext_resource type="AudioStream" uid="uid://dyiytrb8d0ict" path="res://boss/SE/ataque.mp3" id="5_62yqp"]
 [ext_resource type="AudioStream" uid="uid://xdnrgsqjssh1" path="res://boss/SE/projectile.mp3" id="6_gy5ct"]
+[ext_resource type="AudioStream" uid="uid://festlsmjt0sq" path="res://boss/SE/dying1.mp3" id="7_kutrm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t30kd"]
 atlas = ExtResource("1_xq418")
@@ -50,6 +51,14 @@ region = Rect2(0, 265, 55, 54)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2voa3"]
 atlas = ExtResource("1_xq418")
 region = Rect2(59, 265, 59, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aar8j"]
+atlas = ExtResource("1_xq418")
+region = Rect2(440, 122, 55, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm1vr"]
+atlas = ExtResource("1_xq418")
+region = Rect2(540, 122, 45, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqghb"]
 atlas = ExtResource("1_xq418")
@@ -161,6 +170,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_aar8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm1vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq418")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t30kd")
+}],
+"loop": false,
+"name": &"muerte",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yqghb")
 }, {
 "duration": 1.0,
@@ -206,14 +232,18 @@ size = Vector2(34, 52)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ltso"]
 size = Vector2(25, 43)
 
-[node name="piccolo" type="CharacterBody2D" unique_id=1831578707]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy5ct"]
+size = Vector2(40, 56)
+
+[node name="piccolo" type="CharacterBody2D" unique_id=1831578707 groups=["enemigos"]]
 script = ExtResource("1_t30kd")
 magia_scene = ExtResource("2_jvca8")
 
 [node name="ani_piccolo" type="AnimatedSprite2D" parent="." unique_id=959789038]
 sprite_frames = SubResource("SpriteFrames_yqghb")
-animation = &"caminar"
-frame_progress = 0.17775908
+animation = &"muerte"
+frame = 3
+frame_progress = 1.0
 
 [node name="col_ene_dyn" type="CollisionShape2D" parent="." unique_id=214108479]
 position = Vector2(-1, 0)
@@ -224,6 +254,11 @@ shape = SubResource("RectangleShape2D_52c8n")
 [node name="col_ene_dyn_ataque" type="CollisionShape2D" parent="Area2D" unique_id=1630040240]
 position = Vector2(15.5, 3.5)
 shape = SubResource("RectangleShape2D_5ltso")
+disabled = true
+
+[node name="col_ene_dano" type="CollisionShape2D" parent="Area2D" unique_id=862016274]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_gy5ct")
 
 [node name="detectorIzquierdo" type="RayCast2D" parent="." unique_id=1625573415]
 position = Vector2(-20, 1)
@@ -234,14 +269,19 @@ position = Vector2(16, 2)
 target_position = Vector2(7, 182)
 
 [node name="sonido_aparicion" type="AudioStreamPlayer" parent="." unique_id=1558974409]
-stream = ExtResource("4_1sx6b")
+stream = ExtResource("4_gy5ct")
+volume_db = -11.86
 
 [node name="sonido_ataque" type="AudioStreamPlayer" parent="." unique_id=2002999732]
 stream = ExtResource("5_62yqp")
 
-[node name="sonido_magia" type="AudioStreamPlayer" parent="." unique_id=1225973804]
-
 [node name="sonido_proyectil" type="AudioStreamPlayer" parent="." unique_id=1987738165]
 stream = ExtResource("6_gy5ct")
+volume_db = -6.68
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_ene_area_body_entered"]
+[node name="sonido_muerte" type="AudioStreamPlayer" parent="." unique_id=275481003]
+stream = ExtResource("7_kutrm")
+
+[connection signal="animation_finished" from="ani_piccolo" to="." method="_on_ani_piccolo_animation_finished"]
+[connection signal="frame_changed" from="ani_piccolo" to="." method="_on_ani_piccolo_frame_changed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
