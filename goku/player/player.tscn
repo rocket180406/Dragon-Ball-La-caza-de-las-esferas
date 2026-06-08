@@ -217,7 +217,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
@@ -230,7 +230,7 @@ radius = 28.07204
 position = Vector2(0, -3)
 script = ExtResource("1_rkbax")
 speed = 175.0
-acceleration = 2000.0
+acceleration = 1000.0
 jump_force = -545.0
 cooldown_ataque = 1.0
 
@@ -239,6 +239,7 @@ position = Vector2(-1036.0001, -2909)
 scale = Vector2(0.9523828, 0.96392006)
 sprite_frames = SubResource("SpriteFrames_4flbx")
 animation = &"run"
+frame_progress = 0.8700266
 offset = Vector2(1088, 3013)
 metadata/_edit_group_ = true
 

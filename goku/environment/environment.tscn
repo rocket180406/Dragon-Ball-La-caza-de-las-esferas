@@ -21,7 +21,7 @@
 position = Vector2(-3, -6)
 
 [node name="karin" parent="." unique_id=1745853393 instance=ExtResource("4_7uceq")]
-position = Vector2(558, -127)
+position = Vector2(584, -146)
 scale = Vector2(0.2, 0.2)
 
 [node name="player" parent="." unique_id=314733550 instance=ExtResource("1_8a1ph")]
@@ -58,7 +58,7 @@ position = Vector2(24540, 6280)
 position = Vector2(61360, 13240)
 
 [node name="BolaDragon7" parent="coleccionables" unique_id=38528855 instance=ExtResource("12_ypa7m")]
-position = Vector2(-44420, 12000)
+position = Vector2(-44560, 12220)
 
 [node name="enemigos_de_tierra" type="Node2D" parent="." unique_id=1955588281]
 scale = Vector2(0.15, 0.15)
@@ -106,5 +106,5 @@ position = Vector2(2108, 163)
 scale = Vector2(0.45000002, 0.45000002)
 
 [node name="EneAereo5" parent="enemigos_aereos" unique_id=905458007 instance=ExtResource("14_gewoo")]
-position = Vector2(-1134.9999, 531)
+position = Vector2(-1250.9999, 447.99994)
 scale = Vector2(0.45000002, 0.45000002)
