@@ -241,9 +241,9 @@ magia_scene = ExtResource("2_jvca8")
 
 [node name="ani_piccolo" type="AnimatedSprite2D" parent="." unique_id=959789038]
 sprite_frames = SubResource("SpriteFrames_yqghb")
-animation = &"muerte"
-frame = 3
-frame_progress = 1.0
+animation = &"aparicion"
+frame = 1
+frame_progress = 0.74583334
 
 [node name="col_piccolo" type="CollisionShape2D" parent="." unique_id=214108479]
 position = Vector2(-1, 0)

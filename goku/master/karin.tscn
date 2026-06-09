@@ -72,6 +72,7 @@ text = "     ¡Vidas actualizadas!
 [node name="Area2D_karin" type="Area2D" parent="." unique_id=1457851329]
 
 [node name="coll_karin" type="CollisionShape2D" parent="Area2D_karin" unique_id=1940223942]
+visible = false
 position = Vector2(3, -40)
 shape = SubResource("RectangleShape2D_hwq4b")
 

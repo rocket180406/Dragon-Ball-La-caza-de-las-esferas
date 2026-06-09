@@ -305,12 +305,13 @@ position = Vector2(-1036.0001, -2909)
 scale = Vector2(0.9523828, 0.96392006)
 sprite_frames = SubResource("SpriteFrames_4flbx")
 animation = &"emote"
-frame = 15
-frame_progress = 1.0
+frame = 1
+frame_progress = 0.38509625
 offset = Vector2(1088, 3013)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=203791702]
+visible = false
 position = Vector2(-2.5, 5.25)
 shape = SubResource("RectangleShape2D_rkbax")
 metadata/_edit_group_ = true
@@ -348,6 +349,7 @@ stream = ExtResource("6_g6k8r")
 volume_db = 1.164
 
 [node name="AreaAtaque" type="Area2D" parent="." unique_id=974728181]
+visible = false
 
 [node name="coll_ataque" type="CollisionShape2D" parent="AreaAtaque" unique_id=1948178525]
 position = Vector2(19, -3)
