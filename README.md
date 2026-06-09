@@ -3,7 +3,7 @@
 
 ---
 
-**Autores:** Daniel Herrero Hernández, Alexis Rodríguez Ragel, Erick Bolaños
+**Autores:** Daniel Herrero Hernández, Alexis Rodríguez Ragel
 **Asignatura:** Desarrollo de Videojuegos  
 **Titulación:** Desarrollo de Aplicaciones Multiplataforma (DAM)  
 **Motor de desarrollo:** Godot Engine  
